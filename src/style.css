@@ -1,0 +1,176 @@
+/* Colors */
+:root {
+  --color-text: #010510;
+  --color-highlights: #aeb3b9;
+  --color-lines: #dedfe2;
+}
+
+/* Loading Fonts */
+@font-face {
+  font-family: 'Mona Sans';
+  src: url('./font/Mona-Sans.woff2') format('woff2 supports variations'),
+    url('./font/Mona-Sans.woff2') format('woff2-variations');
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+}
+
+@font-face {
+  font-family: 'Mona Sans Fallback';
+  size-adjust: 108.5%;
+  ascent-override: 82%;
+  src: local(Arial);
+}
+
+/* General Settings */
+* {
+  margin: 0;
+  padding: 0;
+  color: var(--color-text);
+  font-family: 'Mona Sans', 'Mona Sans Fallback';
+}
+
+/*
+ * Initial Design
+ */
+
+/* Other UI Elements */
+#ui-elements {
+  pointer-events: none;
+}
+
+#left-side-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 100vh;
+  border-right: 1px solid var(--color-lines);
+}
+
+#right-side-line {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 25px;
+  height: 100vh;
+  border-left: 1px solid var(--color-lines);
+}
+
+/* Titles */
+#titles {
+  padding: 15px 30px;
+  margin: 30px 0 0;
+  border-top: 1px solid var(--color-lines);
+  border-bottom: 1px solid var(--color-lines);
+}
+
+#main-title {
+  font-weight: 700;
+  font-stretch: 125%;
+  line-height: 30px;
+  margin: 0 0 10px;
+}
+
+#mini-title {
+  display: block;
+  color: var(--color-highlights);
+}
+
+/* Task Cards */
+.card::marker {
+  font-weight: 200;
+  color: var(--color-highlights);
+  font-stretch: 125%;
+}
+
+.card::before {
+  content: '\\';
+  font-stretch: 125%;
+  font-weight: 200;
+  margin: 0 10px 0 -10px;
+  color: var(--color-highlights);
+}
+
+.card {
+  position: relative;
+  margin: 0 25px;
+  padding: 15px 0;
+  list-style-type: decimal-leading-zero;
+  list-style-position: inside;
+  font-size: 1.3em;
+  font-stretch: 125%;
+  font-weight: 200;
+  border-bottom: 1px solid var(--color-lines);
+}
+
+.card-text {
+  display: inline-block;
+  margin-bottom: -6px;
+  width: calc(100% - 100px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.card a {
+  text-decoration: none;
+  outline: none;
+}
+
+.github-link-img {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  transform: translateY(-50%);
+  width: 30px;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  padding: 10px 30px;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 0.9em;
+  font-weight: 300;
+  color: var(--color-highlights);
+}
+
+footer a {
+  color: var(--color-highlights);
+}
+
+/* Desktop View */
+@media screen and (min-width: 700px) {
+  #titles {
+    padding: 35px 45px;
+  }
+
+  .card {
+    padding: 15px 25px;
+  }
+
+  .github-link-img {
+    right: 25px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #fff;
+    --color-highlights: #9399a1;
+    --color-lines: #383c41;
+  }
+
+  html {
+    background: black;
+  }
+
+  .github-link-img {
+    filter: invert(80%);
+  }
+}
