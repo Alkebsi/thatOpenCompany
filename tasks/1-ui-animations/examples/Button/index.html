@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="bim-ui-dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button</title>
+  <style>
+    html {
+      font-family: sans-serif;
+    }
+
+    body {
+      background-color: var(--bim-ui_bg-base);
+    }
+
+    .btn-1 {
+      --bim-label--c: rgb(255 97 97);
+      background-color: rgb(182 19 19 / 40%);
+      border-radius: 100px;
+    }
+
+    .btn-1:hover {
+      --bim-label--c: rgb(239, 75, 75);
+      background-color: rgb(182 19 19 / 50%);
+      outline: 1px solid rgb(239, 75, 75);
+    }
+
+    .btn-1::before,
+    .btn-1::after {
+      background-color: transparent;
+    }
+
+    .btn-2 {
+      background-color: transparent;
+    }
+
+    .btn-2:hover {
+      --bim-label--c: var(--bim-ui_accent-base);
+    }
+
+    .btn-2::before,
+    .btn-2::after {
+      background-color: rgb(75, 141, 239);
+    }
+  </style>
+  <script type="module" crossorigin src="../assets/button.js"></script>
+  <link rel="modulepreload" crossorigin href="../assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="../assets/lit-html-CuBe1DX_.js">
+  <link rel="modulepreload" crossorigin href="../assets/state-VyZkHw6A.js">
+  <link rel="modulepreload" crossorigin href="../assets/ref-DfidMTJ6.js">
+  <link rel="modulepreload" crossorigin href="../assets/index-I3V9HmsE.js">
+</head>
+
+<body>
+  <div style="display: flex; flex-direction: column; gap: 0.35rem; width: 15rem;">
+    <bim-button label="My Button!" icon="solar:alarm-play-bold" tooltip-title="The Button"
+      tooltip-text="This just activates a popup!"></bim-button>
+    <bim-button class="btn-1" label="An nicely styled button" icon="solar:alarm-play-bold"></bim-button>
+    <bim-button class="btn-2" label="An styled button" icon="solar:alarm-play-bold"></bim-button>
+    <bim-button label="Vertical Button" icon="solar:alarm-play-bold" vertical></bim-button>
+    <bim-button label="No icon"></bim-button>
+    <bim-button icon="solar:settings-bold"></bim-button>
+    <bim-button loading label="Loading..."></bim-button>
+    <bim-button icon="fe:elipsis-v" style="width: min-content;">
+      <bim-context-menu>
+        <bim-button label="Action A">
+          <bim-context-menu>
+            <bim-button label="Sub Action A">
+              <bim-context-menu>
+                <bim-button label="Hi there"></bim-button>
+              </bim-context-menu>
+            </bim-button>
+            <bim-button label="Sub Action B"></bim-button>
+          </bim-context-menu>
+        </bim-button>
+        <bim-button id="context-btn" label="Action B"></bim-button>
+        <bim-button label="Action C">
+          <bim-context-menu>
+            <bim-button label="Action"></bim-button>
+            <bim-button label="Another Action"></bim-button>
+            <bim-button label="Another Cool Action"></bim-button>
+          </bim-context-menu>
+        </bim-button>
+      </bim-context-menu>
+    </bim-button>
+  </div>
+</body>
+
+</html>

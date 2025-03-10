@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as e}from"./index-I3V9HmsE.js";import"./state-VyZkHw6A.js";import"./lit-html-CuBe1DX_.js";import"./ref-DfidMTJ6.js";e.init();const t=document.querySelector("bim-text-input[name='name']");t.addEventListener("input",()=>{console.log(t.value)});
