@@ -252,27 +252,18 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       transition: all 0.15s;
     }
 
-    :host::before,
-    :host::after {
+    :host(:not([disabled]))::before {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       border-radius: inherit;
-      box-sizing: border-box;
-    }
-
-    :host(:not([disabled]))::before {
-      content: "";
       background-color: var(--bim-ui_main-base);
-      border-radius: 50%;
-      top: 152%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      transition:
-        top 0.3s cubic-bezier(0.72, 0.1, 0.43, 0.93),
-        transform 0.2s cubic-bezier(0.72, 0.1, 0.43, 0.93);
+      clip-path: ellipse(0 0 at center bottom);
+      box-sizing: border-box;
+      transition: clip-path 0.3s cubic-bezier(0.72, 0.1, 0.43, 0.93);
     }
 
     :host(:not([disabled]):hover) {
@@ -323,8 +314,7 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
     }
 
     :host(:hover)::before {
-      top: 50%;
-      transform: translate(-50%, -50%) scale(200%);
+      clip-path: ellipse(120% 120% at center bottom);
     }
 
     :host(:hover) {
@@ -388,13 +378,16 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
     }
   `,dG);t5([un({type:String,reflect:!0})],_4.prototype,"label",2);t5([un({type:Boolean,attribute:"label-hidden",reflect:!0})],_4.prototype,"labelHidden",2);t5([un({type:Boolean,reflect:!0})],_4.prototype,"active",2);t5([un({type:Boolean,reflect:!0,attribute:"disabled"})],_4.prototype,"disabled",2);t5([un({type:String,reflect:!0})],_4.prototype,"icon",2);t5([un({type:Boolean,reflect:!0})],_4.prototype,"vertical",2);t5([un({type:Number,attribute:"tooltip-time",reflect:!0})],_4.prototype,"tooltipTime",2);t5([un({type:Boolean,attribute:"tooltip-visible",reflect:!0})],_4.prototype,"tooltipVisible",2);t5([un({type:String,attribute:"tooltip-title",reflect:!0})],_4.prototype,"tooltipTitle",2);t5([un({type:String,attribute:"tooltip-text",reflect:!0})],_4.prototype,"tooltipText",2);t5([un({type:Boolean,reflect:!0})],_4.prototype,"loading",1);let hfe=_4;var ffe=Object.defineProperty,kz=(e,t,n,s)=>{for(var l=void 0,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=i(t,n,l)||l);return l&&ffe(t,n,l),l};const qle=class extends fr{constructor(){super(...arguments),this.checked=!1,this.inverted=!1,this.onValueChange=new Event("change")}get value(){return this.checked}onChange(t){t.stopPropagation(),this.checked=t.target.checked,this.dispatchEvent(this.onValueChange)}render(){return ls`
       <div class="parent">
-        ${this.label?ls`<bim-label .icon="${this.icon}">${this.label}</bim-label> `:null}
-        <input
-          type="checkbox"
-          aria-label=${this.label||this.name||"Checkbox Input"}
-          @change="${this.onChange}"
-          .checked="${this.checked}"
-        />
+        <label class="parent-label">
+          ${this.label?ls`<bim-label .icon="${this.icon}">${this.label}</bim-label> `:null}
+          <input
+            type="checkbox"
+            aria-label=${this.label||this.name||"Checkbox Input"}
+            @change="${this.onChange}"
+            .checked="${this.checked}"
+          />
+          <span class="checkmark"></span>
+        </label>
       </div>
     `}};qle.styles=Lr`
     :host {
@@ -402,16 +395,27 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
     }
 
     .parent {
-      display: flex;
-      justify-content: space-between;
-      height: 1.75rem;
-      column-gap: 0.25rem;
       width: 100%;
-      align-items: center;
+      position: relative;
+      display: block;
       transition: all 0.15s;
     }
 
-    :host([inverted]) .parent {
+    .parent-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      width: 100%;
+      height: 1.75rem;
+      column-gap: 0.25rem;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+    :host([inverted]) .parent-label {
       flex-direction: row-reverse;
       justify-content: start;
     }
@@ -419,16 +423,69 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
     input {
       height: 1rem;
       width: 1rem;
+      opacity: 0;
       cursor: pointer;
-      border: none;
-      outline: none;
-      accent-color: var(--bim-checkbox--c, var(--bim-ui_main-base));
-      transition: all 0.15s;
     }
 
-    input:focus {
-      outline: var(--bim-checkbox--olw, 2px) solid
-        var(--bim-checkbox--olc, var(--bim-ui_accent-base));
+    .checkmark::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-radius: inherit;
+      background-color: var(--bim-checkbox--c, var(--bim-ui_main-base));
+      clip-path: circle(0 at center bottom);
+      filter: brightness(150%);
+      box-sizing: border-box;
+      transition: clip-path 0.3s cubic-bezier(0.72, 0.1, 0.43, 0.93);
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin-inline-end: 0.1rem;
+      transform: translateY(-50%);
+      width: 1rem;
+      height: 1rem;
+      min-width: min-content;
+      min-height: min-content;
+      overflow: hidden;
+      background: white;
+      border-radius: 0.25rem;
+    }
+
+    .checkmark::after {
+      content: "";
+      position: absolute;
+      width: 0.3rem;
+      height: 0.6rem;
+      left: 0.2rem;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg) scale(0.7);
+      clip-path: circle(0% at 100% 100%);
+      transition: clip-path 0.2s;
+    }
+
+    .parent-label:hover .checkmark::before {
+      clip-path: circle(120% at center bottom);
+    }
+
+    :host([checked]) .checkmark {
+      background-color: var(--bim-checkbox--c, var(--bim-ui_main-base));
+    }
+
+    :host([checked]) .checkmark::after {
+      left: 0.25rem;
+      clip-path: circle(150% at 100% 100%);
+    }
+
+    :host([inverted]) .checkmark {
+      left: 0;
+      margin-inline-start: 0.3rem;
     }
   `;let JF=qle;kz([un({type:String,reflect:!0})],JF.prototype,"icon");kz([un({type:String,reflect:!0})],JF.prototype,"name");kz([un({type:String,reflect:!0})],JF.prototype,"label");kz([un({type:Boolean,reflect:!0})],JF.prototype,"checked");kz([un({type:Boolean,reflect:!0})],JF.prototype,"inverted");var dfe=Object.defineProperty,XF=(e,t,n,s)=>{for(var l=void 0,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=i(t,n,l)||l);return l&&dfe(t,n,l),l};const Zle=class extends fr{constructor(){super(...arguments),this.vertical=!1,this.color="#bcf124",this._colorInput=PF(),this._textInput=PF(),this.onValueChange=new Event("input"),this.onOpacityInput=t=>{const n=t.target;this.opacity=n.value,this.dispatchEvent(this.onValueChange)}}set value(t){const{color:n,opacity:s}=t;this.color=n,s&&(this.opacity=s)}get value(){const t={color:this.color};return this.opacity&&(t.opacity=this.opacity),t}onColorInput(t){t.stopPropagation();const{value:n}=this._colorInput;n&&(this.color=n.value,this.dispatchEvent(this.onValueChange))}onTextInput(t){t.stopPropagation();const{value:n}=this._textInput;if(!n)return;const{value:s}=n;let l=s.replace(/[^a-fA-F0-9]/g,"");l.startsWith("#")||(l=`#${l}`),n.value=l.slice(0,7),n.value.length===7&&(this.color=n.value,this.dispatchEvent(this.onValueChange))}focus(){const{value:t}=this._colorInput;t&&t.click()}render(){return ls`
       <div class="parent">
@@ -1126,8 +1183,7 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
         .vertical=${this.vertical}
         .label=${this.label}
         .icon=${this.icon}
-        @mousedown=${this.checkLastElement}
-        @touchstart=${this.checkLastElement}
+        @pointerdown=${this.checkLastElement}
       >
         <slot @slotchange=${this.onSlotChange}></slot>
       </bim-input>
@@ -1534,22 +1590,49 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       .switcher {
         --bim-label--c: var(--bim-ui_bg-contrast-80);
         background-color: var(--bim-ui_bg-base);
+        position: relative;
         cursor: pointer;
         pointer-events: auto;
         padding: 0rem 0.75rem;
         display: flex;
+        overflow: hidden;
         justify-content: center;
+        z-index: 2;
         transition: all 0.15s;
+      }
+
+      .switcher::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        background-color: var(--bim-ui_main-base);
+        clip-path: circle(0 at center bottom);
+        box-sizing: border-box;
+        z-index: -1;
+        transition:
+          filter 0.1s cubic-bezier(0.72, 0.1, 0.43, 0.93),
+          clip-path 0.3s cubic-bezier(0.72, 0.1, 0.43, 0.93);
+      }
+
+      .switcher:not([data-active]):hover::before {
+        clip-path: circle(120% at center bottom);
+        filter: brightness(70%);
       }
 
       :host([switchers-full]) .switcher {
         flex: 1;
       }
 
-      .switcher:hover,
       .switcher[data-active] {
         --bim-label--c: var(--bim-ui_main-contrast);
-        background-color: var(--bim-ui_main-base);
+      }
+
+      .switcher[data-active]::before {
+        clip-path: circle(120% at center bottom);
       }
 
       .switchers bim-label {
