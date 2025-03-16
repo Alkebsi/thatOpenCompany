@@ -12,7 +12,7 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
  * SPDX-License-Identifier: BSD-3-Clause
  */const cj=globalThis,hj=cj.trustedTypes,av=hj?hj.createPolicy("lit-html",{createHTML:e=>e}):void 0,fle="$lit$",QD=`lit$${Math.random().toFixed(9).slice(2)}$`,dle="?"+QD,_ce=`<${dle}>`,hP=document,vV=()=>hP.createComment(""),ez=e=>e===null||typeof e!="object"&&typeof e!="function",pJ=Array.isArray,Gce=e=>pJ(e)||typeof(e==null?void 0:e[Symbol.iterator])=="function",EZ=`[ 	
 \f\r]`,fG=/<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g,ov=/-->/g,uv=/>/g,H7=RegExp(`>|${EZ}(?:([^\\s"'>=/]+)(${EZ}*=${EZ}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`,"g"),cv=/'/g,hv=/"/g,Ile=/^(?:script|style|textarea|title)$/i,Vce=e=>(t,...n)=>({_$litType$:e,strings:t,values:n}),ls=Vce(1),fP=Symbol.for("lit-noChange"),Iu=Symbol.for("lit-nothing"),fv=new WeakMap,zb=hP.createTreeWalker(hP,129);function ple(e,t){if(!pJ(e)||!e.hasOwnProperty("raw"))throw Error("invalid template strings array");return av!==void 0?av.createHTML(t):t}const zce=(e,t)=>{const n=e.length-1,s=[];let l,r=t===2?"<svg>":t===3?"<math>":"",i=fG;for(let c=0;c<n;c++){const h=e[c];let d,I,E=-1,y=0;for(;y<h.length&&(i.lastIndex=y,I=i.exec(h),I!==null);)y=i.lastIndex,i===fG?I[1]==="!--"?i=ov:I[1]!==void 0?i=uv:I[2]!==void 0?(Ile.test(I[2])&&(l=RegExp("</"+I[2],"g")),i=H7):I[3]!==void 0&&(i=H7):i===H7?I[0]===">"?(i=l??fG,E=-1):I[1]===void 0?E=-2:(E=i.lastIndex-I[2].length,d=I[1],i=I[3]===void 0?H7:I[3]==='"'?hv:cv):i===hv||i===cv?i=H7:i===ov||i===uv?i=fG:(i=H7,l=void 0);const T=i===H7&&e[c+1].startsWith("/>")?" ":"";r+=i===fG?h+_ce:E>=0?(s.push(d),h.slice(0,E)+fle+h.slice(E)+QD+T):h+QD+(E===-2?c:T)}return[ple(e,r+(e[n]||"<?>")+(t===2?"</svg>":t===3?"</math>":"")),s]};class tz{constructor({strings:t,_$litType$:n},s){let l;this.parts=[];let r=0,i=0;const c=t.length-1,h=this.parts,[d,I]=zce(t,n);if(this.el=tz.createElement(d,s),zb.currentNode=this.el.content,n===2||n===3){const E=this.el.content.firstChild;E.replaceWith(...E.childNodes)}for(;(l=zb.nextNode())!==null&&h.length<c;){if(l.nodeType===1){if(l.hasAttributes())for(const E of l.getAttributeNames())if(E.endsWith(fle)){const y=I[i++],T=l.getAttribute(E).split(QD),S=/([.?@])?(.*)/.exec(y);h.push({type:1,index:r,name:S[2],strings:T,ctor:S[1]==="."?Yce:S[1]==="?"?Wce:S[1]==="@"?jce:Hj}),l.removeAttribute(E)}else E.startsWith(QD)&&(h.push({type:6,index:r}),l.removeAttribute(E));if(Ile.test(l.tagName)){const E=l.textContent.split(QD),y=E.length-1;if(y>0){l.textContent=hj?hj.emptyScript:"";for(let T=0;T<y;T++)l.append(E[T],vV()),zb.nextNode(),h.push({type:2,index:++r});l.append(E[y],vV())}}}else if(l.nodeType===8)if(l.data===dle)h.push({type:2,index:r});else{let E=-1;for(;(E=l.data.indexOf(QD,E+1))!==-1;)h.push({type:7,index:r}),E+=QD.length-1}r++}}static createElement(t,n){const s=hP.createElement("template");return s.innerHTML=t,s}}function LF(e,t,n=e,s){var l,r;if(t===fP)return t;let i=s!==void 0?(l=n._$Co)==null?void 0:l[s]:n._$Cl;const c=ez(t)?void 0:t._$litDirective$;return(i==null?void 0:i.constructor)!==c&&((r=i==null?void 0:i._$AO)==null||r.call(i,!1),c===void 0?i=void 0:(i=new c(e),i._$AT(e,n,s)),s!==void 0?(n._$Co??(n._$Co=[]))[s]=i:n._$Cl=i),i!==void 0&&(t=LF(e,i._$AS(e,t.values),i,s)),t}class kce{constructor(t,n){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=n}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){const{el:{content:n},parts:s}=this._$AD,l=((t==null?void 0:t.creationScope)??hP).importNode(n,!0);zb.currentNode=l;let r=zb.nextNode(),i=0,c=0,h=s[0];for(;h!==void 0;){if(i===h.index){let d;h.type===2?d=new EJ(r,r.nextSibling,this,t):h.type===1?d=new h.ctor(r,h.name,h.strings,this,t):h.type===6&&(d=new qce(r,this,t)),this._$AV.push(d),h=s[++c]}i!==(h==null?void 0:h.index)&&(r=zb.nextNode(),i++)}return zb.currentNode=hP,l}p(t){let n=0;for(const s of this._$AV)s!==void 0&&(s.strings!==void 0?(s._$AI(t,s,n),n+=s.strings.length-2):s._$AI(t[n])),n++}}let EJ=class Ele{get _$AU(){var t;return((t=this._$AM)==null?void 0:t._$AU)??this._$Cv}constructor(t,n,s,l){this.type=2,this._$AH=Iu,this._$AN=void 0,this._$AA=t,this._$AB=n,this._$AM=s,this.options=l,this._$Cv=(l==null?void 0:l.isConnected)??!0}get parentNode(){let t=this._$AA.parentNode;const n=this._$AM;return n!==void 0&&(t==null?void 0:t.nodeType)===11&&(t=n.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,n=this){t=LF(this,t,n),ez(t)?t===Iu||t==null||t===""?(this._$AH!==Iu&&this._$AR(),this._$AH=Iu):t!==this._$AH&&t!==fP&&this._(t):t._$litType$!==void 0?this.$(t):t.nodeType!==void 0?this.T(t):Gce(t)?this.k(t):this._(t)}O(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}T(t){this._$AH!==t&&(this._$AR(),this._$AH=this.O(t))}_(t){this._$AH!==Iu&&ez(this._$AH)?this._$AA.nextSibling.data=t:this.T(hP.createTextNode(t)),this._$AH=t}$(t){var n;const{values:s,_$litType$:l}=t,r=typeof l=="number"?this._$AC(t):(l.el===void 0&&(l.el=tz.createElement(ple(l.h,l.h[0]),this.options)),l);if(((n=this._$AH)==null?void 0:n._$AD)===r)this._$AH.p(s);else{const i=new kce(r,this),c=i.u(this.options);i.p(s),this.T(c),this._$AH=i}}_$AC(t){let n=fv.get(t.strings);return n===void 0&&fv.set(t.strings,n=new tz(t)),n}k(t){pJ(this._$AH)||(this._$AH=[],this._$AR());const n=this._$AH;let s,l=0;for(const r of t)l===n.length?n.push(s=new Ele(this.O(vV()),this.O(vV()),this,this.options)):s=n[l],s._$AI(r),l++;l<n.length&&(this._$AR(s&&s._$AB.nextSibling,l),n.length=l)}_$AR(t=this._$AA.nextSibling,n){var s;for((s=this._$AP)==null?void 0:s.call(this,!1,!0,n);t&&t!==this._$AB;){const l=t.nextSibling;t.remove(),t=l}}setConnected(t){var n;this._$AM===void 0&&(this._$Cv=t,(n=this._$AP)==null||n.call(this,t))}},Hj=class{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(t,n,s,l,r){this.type=1,this._$AH=Iu,this._$AN=void 0,this.element=t,this.name=n,this._$AM=l,this.options=r,s.length>2||s[0]!==""||s[1]!==""?(this._$AH=Array(s.length-1).fill(new String),this.strings=s):this._$AH=Iu}_$AI(t,n=this,s,l){const r=this.strings;let i=!1;if(r===void 0)t=LF(this,t,n,0),i=!ez(t)||t!==this._$AH&&t!==fP,i&&(this._$AH=t);else{const c=t;let h,d;for(t=r[0],h=0;h<r.length-1;h++)d=LF(this,c[s+h],n,h),d===fP&&(d=this._$AH[h]),i||(i=!ez(d)||d!==this._$AH[h]),d===Iu?t=Iu:t!==Iu&&(t+=(d??"")+r[h+1]),this._$AH[h]=d}i&&!l&&this.j(t)}j(t){t===Iu?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,t??"")}},Yce=class extends Hj{constructor(){super(...arguments),this.type=3}j(t){this.element[this.name]=t===Iu?void 0:t}},Wce=class extends Hj{constructor(){super(...arguments),this.type=4}j(t){this.element.toggleAttribute(this.name,!!t&&t!==Iu)}},jce=class extends Hj{constructor(t,n,s,l,r){super(t,n,s,l,r),this.type=5}_$AI(t,n=this){if((t=LF(this,t,n,0)??Iu)===fP)return;const s=this._$AH,l=t===Iu&&s!==Iu||t.capture!==s.capture||t.once!==s.once||t.passive!==s.passive,r=t!==Iu&&(s===Iu||l);l&&this.element.removeEventListener(this.name,this,s),r&&this.element.addEventListener(this.name,this,t),this._$AH=t}handleEvent(t){var n;typeof this._$AH=="function"?this._$AH.call(((n=this.options)==null?void 0:n.host)??this.element,t):this._$AH.handleEvent(t)}},qce=class{constructor(t,n,s){this.element=t,this.type=6,this._$AN=void 0,this._$AM=n,this.options=s}get _$AU(){return this._$AM._$AU}_$AI(t){LF(this,t)}};const dv=cj.litHtmlPolyfillSupport;dv==null||dv(tz,EJ),(cj.litHtmlVersions??(cj.litHtmlVersions=[])).push("3.2.1");const bF=(e,t,n)=>{const s=(n==null?void 0:n.renderBefore)??t;let l=s._$litPart$;if(l===void 0){const r=(n==null?void 0:n.renderBefore)??null;s._$litPart$=l=new EJ(t.insertBefore(vV(),r),r,void 0,n??{})}return l._$AI(e),l};/**
+\f\r"'\`<>=]|("|')|))|$)`,"g"),cv=/'/g,hv=/"/g,Ile=/^(?:script|style|textarea|title)$/i,Vce=e=>(t,...n)=>({_$litType$:e,strings:t,values:n}),ls=Vce(1),fP=Symbol.for("lit-noChange"),Iu=Symbol.for("lit-nothing"),fv=new WeakMap,zb=hP.createTreeWalker(hP,129);function ple(e,t){if(!pJ(e)||!e.hasOwnProperty("raw"))throw Error("invalid template strings array");return av!==void 0?av.createHTML(t):t}const zce=(e,t)=>{const n=e.length-1,s=[];let l,r=t===2?"<svg>":t===3?"<math>":"",i=fG;for(let c=0;c<n;c++){const h=e[c];let d,I,E=-1,y=0;for(;y<h.length&&(i.lastIndex=y,I=i.exec(h),I!==null);)y=i.lastIndex,i===fG?I[1]==="!--"?i=ov:I[1]!==void 0?i=uv:I[2]!==void 0?(Ile.test(I[2])&&(l=RegExp("</"+I[2],"g")),i=H7):I[3]!==void 0&&(i=H7):i===H7?I[0]===">"?(i=l??fG,E=-1):I[1]===void 0?E=-2:(E=i.lastIndex-I[2].length,d=I[1],i=I[3]===void 0?H7:I[3]==='"'?hv:cv):i===hv||i===cv?i=H7:i===ov||i===uv?i=fG:(i=H7,l=void 0);const T=i===H7&&e[c+1].startsWith("/>")?" ":"";r+=i===fG?h+_ce:E>=0?(s.push(d),h.slice(0,E)+fle+h.slice(E)+QD+T):h+QD+(E===-2?c:T)}return[ple(e,r+(e[n]||"<?>")+(t===2?"</svg>":t===3?"</math>":"")),s]};class tz{constructor({strings:t,_$litType$:n},s){let l;this.parts=[];let r=0,i=0;const c=t.length-1,h=this.parts,[d,I]=zce(t,n);if(this.el=tz.createElement(d,s),zb.currentNode=this.el.content,n===2||n===3){const E=this.el.content.firstChild;E.replaceWith(...E.childNodes)}for(;(l=zb.nextNode())!==null&&h.length<c;){if(l.nodeType===1){if(l.hasAttributes())for(const E of l.getAttributeNames())if(E.endsWith(fle)){const y=I[i++],T=l.getAttribute(E).split(QD),S=/([.?@])?(.*)/.exec(y);h.push({type:1,index:r,name:S[2],strings:T,ctor:S[1]==="."?Yce:S[1]==="?"?Wce:S[1]==="@"?jce:Hj}),l.removeAttribute(E)}else E.startsWith(QD)&&(h.push({type:6,index:r}),l.removeAttribute(E));if(Ile.test(l.tagName)){const E=l.textContent.split(QD),y=E.length-1;if(y>0){l.textContent=hj?hj.emptyScript:"";for(let T=0;T<y;T++)l.append(E[T],vV()),zb.nextNode(),h.push({type:2,index:++r});l.append(E[y],vV())}}}else if(l.nodeType===8)if(l.data===dle)h.push({type:2,index:r});else{let E=-1;for(;(E=l.data.indexOf(QD,E+1))!==-1;)h.push({type:7,index:r}),E+=QD.length-1}r++}}static createElement(t,n){const s=hP.createElement("template");return s.innerHTML=t,s}}function LF(e,t,n=e,s){var l,r;if(t===fP)return t;let i=s!==void 0?(l=n._$Co)==null?void 0:l[s]:n._$Cl;const c=ez(t)?void 0:t._$litDirective$;return(i==null?void 0:i.constructor)!==c&&((r=i==null?void 0:i._$AO)==null||r.call(i,!1),c===void 0?i=void 0:(i=new c(e),i._$AT(e,n,s)),s!==void 0?(n._$Co??(n._$Co=[]))[s]=i:n._$Cl=i),i!==void 0&&(t=LF(e,i._$AS(e,t.values),i,s)),t}let kce=class{constructor(t,n){this._$AV=[],this._$AN=void 0,this._$AD=t,this._$AM=n}get parentNode(){return this._$AM.parentNode}get _$AU(){return this._$AM._$AU}u(t){const{el:{content:n},parts:s}=this._$AD,l=((t==null?void 0:t.creationScope)??hP).importNode(n,!0);zb.currentNode=l;let r=zb.nextNode(),i=0,c=0,h=s[0];for(;h!==void 0;){if(i===h.index){let d;h.type===2?d=new EJ(r,r.nextSibling,this,t):h.type===1?d=new h.ctor(r,h.name,h.strings,this,t):h.type===6&&(d=new qce(r,this,t)),this._$AV.push(d),h=s[++c]}i!==(h==null?void 0:h.index)&&(r=zb.nextNode(),i++)}return zb.currentNode=hP,l}p(t){let n=0;for(const s of this._$AV)s!==void 0&&(s.strings!==void 0?(s._$AI(t,s,n),n+=s.strings.length-2):s._$AI(t[n])),n++}},EJ=class Ele{get _$AU(){var t;return((t=this._$AM)==null?void 0:t._$AU)??this._$Cv}constructor(t,n,s,l){this.type=2,this._$AH=Iu,this._$AN=void 0,this._$AA=t,this._$AB=n,this._$AM=s,this.options=l,this._$Cv=(l==null?void 0:l.isConnected)??!0}get parentNode(){let t=this._$AA.parentNode;const n=this._$AM;return n!==void 0&&(t==null?void 0:t.nodeType)===11&&(t=n.parentNode),t}get startNode(){return this._$AA}get endNode(){return this._$AB}_$AI(t,n=this){t=LF(this,t,n),ez(t)?t===Iu||t==null||t===""?(this._$AH!==Iu&&this._$AR(),this._$AH=Iu):t!==this._$AH&&t!==fP&&this._(t):t._$litType$!==void 0?this.$(t):t.nodeType!==void 0?this.T(t):Gce(t)?this.k(t):this._(t)}O(t){return this._$AA.parentNode.insertBefore(t,this._$AB)}T(t){this._$AH!==t&&(this._$AR(),this._$AH=this.O(t))}_(t){this._$AH!==Iu&&ez(this._$AH)?this._$AA.nextSibling.data=t:this.T(hP.createTextNode(t)),this._$AH=t}$(t){var n;const{values:s,_$litType$:l}=t,r=typeof l=="number"?this._$AC(t):(l.el===void 0&&(l.el=tz.createElement(ple(l.h,l.h[0]),this.options)),l);if(((n=this._$AH)==null?void 0:n._$AD)===r)this._$AH.p(s);else{const i=new kce(r,this),c=i.u(this.options);i.p(s),this.T(c),this._$AH=i}}_$AC(t){let n=fv.get(t.strings);return n===void 0&&fv.set(t.strings,n=new tz(t)),n}k(t){pJ(this._$AH)||(this._$AH=[],this._$AR());const n=this._$AH;let s,l=0;for(const r of t)l===n.length?n.push(s=new Ele(this.O(vV()),this.O(vV()),this,this.options)):s=n[l],s._$AI(r),l++;l<n.length&&(this._$AR(s&&s._$AB.nextSibling,l),n.length=l)}_$AR(t=this._$AA.nextSibling,n){var s;for((s=this._$AP)==null?void 0:s.call(this,!1,!0,n);t&&t!==this._$AB;){const l=t.nextSibling;t.remove(),t=l}}setConnected(t){var n;this._$AM===void 0&&(this._$Cv=t,(n=this._$AP)==null||n.call(this,t))}},Hj=class{get tagName(){return this.element.tagName}get _$AU(){return this._$AM._$AU}constructor(t,n,s,l,r){this.type=1,this._$AH=Iu,this._$AN=void 0,this.element=t,this.name=n,this._$AM=l,this.options=r,s.length>2||s[0]!==""||s[1]!==""?(this._$AH=Array(s.length-1).fill(new String),this.strings=s):this._$AH=Iu}_$AI(t,n=this,s,l){const r=this.strings;let i=!1;if(r===void 0)t=LF(this,t,n,0),i=!ez(t)||t!==this._$AH&&t!==fP,i&&(this._$AH=t);else{const c=t;let h,d;for(t=r[0],h=0;h<r.length-1;h++)d=LF(this,c[s+h],n,h),d===fP&&(d=this._$AH[h]),i||(i=!ez(d)||d!==this._$AH[h]),d===Iu?t=Iu:t!==Iu&&(t+=(d??"")+r[h+1]),this._$AH[h]=d}i&&!l&&this.j(t)}j(t){t===Iu?this.element.removeAttribute(this.name):this.element.setAttribute(this.name,t??"")}};class Yce extends Hj{constructor(){super(...arguments),this.type=3}j(t){this.element[this.name]=t===Iu?void 0:t}}let Wce=class extends Hj{constructor(){super(...arguments),this.type=4}j(t){this.element.toggleAttribute(this.name,!!t&&t!==Iu)}},jce=class extends Hj{constructor(t,n,s,l,r){super(t,n,s,l,r),this.type=5}_$AI(t,n=this){if((t=LF(this,t,n,0)??Iu)===fP)return;const s=this._$AH,l=t===Iu&&s!==Iu||t.capture!==s.capture||t.once!==s.once||t.passive!==s.passive,r=t!==Iu&&(s===Iu||l);l&&this.element.removeEventListener(this.name,this,s),r&&this.element.addEventListener(this.name,this,t),this._$AH=t}handleEvent(t){var n;typeof this._$AH=="function"?this._$AH.call(((n=this.options)==null?void 0:n.host)??this.element,t):this._$AH.handleEvent(t)}},qce=class{constructor(t,n,s){this.element=t,this.type=6,this._$AN=void 0,this._$AM=n,this.options=s}get _$AU(){return this._$AM._$AU}_$AI(t){LF(this,t)}};const dv=cj.litHtmlPolyfillSupport;dv==null||dv(tz,EJ),(cj.litHtmlVersions??(cj.litHtmlVersions=[])).push("3.2.1");const bF=(e,t,n)=>{const s=(n==null?void 0:n.renderBefore)??t;let l=s._$litPart$;if(l===void 0){const r=(n==null?void 0:n.renderBefore)??null;s._$litPart$=l=new EJ(t.insertBefore(vV(),r),r,void 0,n??{})}return l._$AI(e),l};/**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -246,9 +246,6 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       pointer-events: none;
       background-color: var(--bim-button--bgc, var(--bim-ui_bg-contrast-20));
       border-radius: var(--bim-ui_size-4xs);
-      overflow: hidden;
-      min-height: min-content;
-      min-width: min-content;
       transition: all 0.15s;
     }
 
@@ -263,7 +260,9 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       background-color: var(--bim-ui_main-base);
       clip-path: ellipse(0 0 at center bottom);
       box-sizing: border-box;
-      transition: clip-path 0.3s cubic-bezier(0.72, 0.1, 0.43, 0.93);
+      transition:
+        clip-path 0.3s cubic-bezier(0.72, 0.1, 0.43, 0.93),
+        transform 0.15s;
     }
 
     :host(:not([disabled]):hover) {
@@ -307,6 +306,7 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
 
     .button {
       flex-grow: 1;
+      transition: transform 0.15s;
     }
 
     :host(:not([label-hidden])[label]) .button {
@@ -319,6 +319,7 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
 
     :host(:hover) {
       --bim-label--c: var(--bim-ui_main-contrast);
+      z-index: 2;
     }
 
     :host([active]) {
@@ -326,6 +327,11 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
     }
 
     :host(:not([disabled]):active) {
+      background: transparent;
+    }
+
+    :host(:not([disabled]):active) .button,
+    :host(:not([disabled]):active)::before {
       transform: scale(0.98);
     }
 
@@ -366,6 +372,12 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       border-radius: var(--bim-ui_size-4xs);
       background-color: var(--bim-ui_bg-contrast-20);
       color: var(--bim-ui_bg-contrast-100);
+      transform-origin: top left;
+      transform: scale(1);
+      clip-path: circle(150% at top left);
+      transition:
+        clip-path 0.2s cubic-bezier(0.72, 0.1, 0.43, 0.93),
+        transform 0.3s cubic-bezier(0.72, 0.1, 0.45, 2.35);
     }
 
     .tooltip p {
@@ -374,7 +386,8 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
     }
 
     :host(:not([tooltip-visible])) .tooltip {
-      display: none;
+      clip-path: circle(0 at top left);
+      transform: scale(0.8);
     }
   `,dG);t5([un({type:String,reflect:!0})],_4.prototype,"label",2);t5([un({type:Boolean,attribute:"label-hidden",reflect:!0})],_4.prototype,"labelHidden",2);t5([un({type:Boolean,reflect:!0})],_4.prototype,"active",2);t5([un({type:Boolean,reflect:!0,attribute:"disabled"})],_4.prototype,"disabled",2);t5([un({type:String,reflect:!0})],_4.prototype,"icon",2);t5([un({type:Boolean,reflect:!0})],_4.prototype,"vertical",2);t5([un({type:Number,attribute:"tooltip-time",reflect:!0})],_4.prototype,"tooltipTime",2);t5([un({type:Boolean,attribute:"tooltip-visible",reflect:!0})],_4.prototype,"tooltipVisible",2);t5([un({type:String,attribute:"tooltip-title",reflect:!0})],_4.prototype,"tooltipTitle",2);t5([un({type:String,attribute:"tooltip-text",reflect:!0})],_4.prototype,"tooltipText",2);t5([un({type:Boolean,reflect:!0})],_4.prototype,"loading",1);let hfe=_4;var ffe=Object.defineProperty,kz=(e,t,n,s)=>{for(var l=void 0,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=i(t,n,l)||l);return l&&ffe(t,n,l),l};const qle=class extends fr{constructor(){super(...arguments),this.checked=!1,this.inverted=!1,this.onValueChange=new Event("change")}get value(){return this.checked}onChange(t){t.stopPropagation(),this.checked=t.target.checked,this.dispatchEvent(this.onValueChange)}render(){return ls`
       <div class="parent">
@@ -450,9 +463,6 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       transform: translateY(-50%);
       width: 1rem;
       height: 1rem;
-      min-width: min-content;
-      min-height: min-content;
-      overflow: hidden;
       background: white;
       border-radius: 0.25rem;
     }
@@ -850,11 +860,13 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       --bim-icon--c: var(--bim-label--c);
       color: var(--bim-label--c, var(--bim-ui_bg-contrast-60));
       font-size: var(--bim-label--fz, var(--bim-ui_size-xs));
-      overflow: hidden;
       display: block;
       white-space: nowrap;
-      line-height: 1.1rem;
       transition: all 0.15s;
+    }
+
+    :host([icon]) {
+      line-height: 1.1rem;
     }
 
     .parent {
@@ -1041,7 +1053,7 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
     bim-label {
       pointer-events: none;
     }
-  `;let zm=ere;G4([un({type:String,reflect:!0})],zm.prototype,"name",2);G4([un({type:String,reflect:!0})],zm.prototype,"icon",2);G4([un({type:String,reflect:!0})],zm.prototype,"label",2);G4([un({type:String,reflect:!0})],zm.prototype,"pref",2);G4([un({type:Number,reflect:!0})],zm.prototype,"min",2);G4([un({type:Number,reflect:!0})],zm.prototype,"value",1);G4([un({type:Number,reflect:!0})],zm.prototype,"step",2);G4([un({type:Number,reflect:!0})],zm.prototype,"sensitivity",2);G4([un({type:Number,reflect:!0})],zm.prototype,"max",2);G4([un({type:String,reflect:!0})],zm.prototype,"suffix",2);G4([un({type:Boolean,reflect:!0})],zm.prototype,"vertical",2);G4([un({type:Boolean,reflect:!0})],zm.prototype,"slider",2);var Sfe=Object.defineProperty,Cfe=Object.getOwnPropertyDescriptor,jz=(e,t,n,s)=>{for(var l=s>1?void 0:s?Cfe(t,n):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=(s?i(t,n,l):i(l))||l);return s&&l&&Sfe(t,n,l),l};const tre=class extends fr{constructor(){super(...arguments),this.onValueChange=new Event("change"),this._hidden=!1,this.headerHidden=!1,this.valueTransform={},this.activationButton=document.createElement("bim-button")}set hidden(t){this._hidden=t,this.activationButton.active=!t,this.dispatchEvent(new Event("hiddenchange"))}get hidden(){return this._hidden}get value(){return yj(this,this.valueTransform)}set value(t){const n=[...this.children];for(const s in t){const l=n.find(i=>{const c=i;return c.name===s||c.label===s});if(!l)continue;const r=l;r.value=t[s]}}connectedCallback(){super.connectedCallback(),this.activationButton.active=!this.hidden,this.activationButton.onclick=()=>this.hidden=!this.hidden}disconnectedCallback(){super.disconnectedCallback(),this.activationButton.remove()}collapseSections(){const t=this.querySelectorAll("bim-panel-section");for(const n of t)n.collapsed=!0}expandSections(){const t=this.querySelectorAll("bim-panel-section");for(const n of t)n.collapsed=!1}render(){return this.activationButton.icon=this.icon,this.activationButton.label=this.label||this.name,this.activationButton.tooltipTitle=this.label||this.name,ls`
+  `;let zm=ere;G4([un({type:String,reflect:!0})],zm.prototype,"name",2);G4([un({type:String,reflect:!0})],zm.prototype,"icon",2);G4([un({type:String,reflect:!0})],zm.prototype,"label",2);G4([un({type:String,reflect:!0})],zm.prototype,"pref",2);G4([un({type:Number,reflect:!0})],zm.prototype,"min",2);G4([un({type:Number,reflect:!0})],zm.prototype,"value",1);G4([un({type:Number,reflect:!0})],zm.prototype,"step",2);G4([un({type:Number,reflect:!0})],zm.prototype,"sensitivity",2);G4([un({type:Number,reflect:!0})],zm.prototype,"max",2);G4([un({type:String,reflect:!0})],zm.prototype,"suffix",2);G4([un({type:Boolean,reflect:!0})],zm.prototype,"vertical",2);G4([un({type:Boolean,reflect:!0})],zm.prototype,"slider",2);var Sfe=Object.defineProperty,Cfe=Object.getOwnPropertyDescriptor,jz=(e,t,n,s)=>{for(var l=s>1?void 0:s?Cfe(t,n):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=(s?i(t,n,l):i(l))||l);return s&&l&&Sfe(t,n,l),l};const tre=class extends fr{constructor(){super(...arguments),this.onValueChange=new Event("change"),this._hidden=!1,this.headerHidden=!1,this.valueTransform={},this.activationButton=document.createElement("bim-button"),this.panelHeight=-1}set hidden(t){this._hidden=t,this.activationButton.active=!t,this.dispatchEvent(new Event("hiddenchange"))}get hidden(){return this._hidden}get value(){return yj(this,this.valueTransform)}set value(t){const n=[...this.children];for(const s in t){const l=n.find(i=>{const c=i;return c.name===s||c.label===s});if(!l)continue;const r=l;r.value=t[s]}}connectedCallback(){super.connectedCallback(),this.activationButton.active=!this.hidden,this.activationButton.onclick=()=>{this.hidden=!this.hidden,this.animatePanel()}}disconnectedCallback(){super.disconnectedCallback(),this.activationButton.remove()}collapseSections(){const t=this.querySelectorAll("bim-panel-section");for(const n of t)n.collapsed=!0}expandSections(){const t=this.querySelectorAll("bim-panel-section");for(const n of t)n.collapsed=!1}firstUpdated(){requestAnimationFrame(()=>{this.animatePanel()})}calculateHeight(t=!1){(this.panelHeight<=0||t)&&(this.hidden?(this.style.setProperty("height","auto"),this.panelHeight=this.clientHeight):(this.style.setProperty("height","auto"),this.panelHeight=this.clientHeight,requestAnimationFrame(()=>{this.style.setProperty("height","0px")})))}animatePanel(){this.calculateHeight(),this.hidden?(this.calculateHeight(!0),this.style.setProperty("height",`${this.panelHeight}px`),this.style.setProperty("opacity","0"),this.style.setProperty("transform","translateX(-10%)"),setTimeout(()=>{this.style.setProperty("height","0px")},300)):requestAnimationFrame(()=>{this.style.setProperty("opacity","1"),this.style.setProperty("transform","translateX(0)"),this.style.setProperty("height","auto")})}render(){return this.activationButton.icon=this.icon,this.activationButton.label=this.label||this.name,this.activationButton.tooltipTitle=this.label||this.name,ls`
       <div class="parent">
         ${this.label||this.name||this.icon?ls`<bim-label .icon=${this.icon}>${this.label}</bim-label>`:null}
         <div class="sections">
@@ -1054,10 +1066,16 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
         border-radius: var(--bim-ui_size-base);
         background-color: var(--bim-ui_bg-base);
         overflow: auto;
+        transition:
+          transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       :host([hidden]) {
-        display: none;
+        height: 0;
+        transform: translateX(-10%);
+        opacity: 0;
       }
 
       .parent {
@@ -1090,36 +1108,31 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       ::slotted(bim-panel-section:not(:last-child)) {
         border-bottom: 1px solid var(--bim-ui_bg-contrast-20);
       }
-    `];let C8=tre;jz([un({type:String,reflect:!0})],C8.prototype,"icon",2);jz([un({type:String,reflect:!0})],C8.prototype,"name",2);jz([un({type:String,reflect:!0})],C8.prototype,"label",2);jz([un({type:Boolean,reflect:!0})],C8.prototype,"hidden",1);jz([un({type:Boolean,attribute:"header-hidden",reflect:!0})],C8.prototype,"headerHidden",2);var Nfe=Object.defineProperty,qz=(e,t,n,s)=>{for(var l=void 0,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=i(t,n,l)||l);return l&&Nfe(t,n,l),l};const nre=class extends fr{constructor(){super(...arguments),this.onValueChange=new Event("change"),this.valueTransform={}}get value(){const t=this.parentElement;let n;return t instanceof C8&&(n=t.valueTransform),Object.values(this.valueTransform).length!==0&&(n=this.valueTransform),yj(this,n)}set value(t){const n=[...this.children];for(const s in t){const l=n.find(i=>{const c=i;return c.name===s||c.label===s});if(!l)continue;const r=l;r.value=t[s]}}onHeaderClick(){this.fixed||(this.collapsed=!this.collapsed)}render(){const t=this.label||this.icon||this.name||this.fixed,n=ls`<svg
+    `];let C8=tre;jz([un({type:String,reflect:!0})],C8.prototype,"icon",2);jz([un({type:String,reflect:!0})],C8.prototype,"name",2);jz([un({type:String,reflect:!0})],C8.prototype,"label",2);jz([un({type:Boolean,reflect:!0})],C8.prototype,"hidden",1);jz([un({type:Boolean,attribute:"header-hidden",reflect:!0})],C8.prototype,"headerHidden",2);var Nfe=Object.defineProperty,qz=(e,t,n,s)=>{for(var l=void 0,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=i(t,n,l)||l);return l&&Nfe(t,n,l),l};const nre=class extends fr{constructor(){super(...arguments),this.onValueChange=new Event("change"),this.valueTransform={},this.componentHeight=-1}get value(){const t=this.parentElement;let n;return t instanceof C8&&(n=t.valueTransform),Object.values(this.valueTransform).length!==0&&(n=this.valueTransform),yj(this,n)}set value(t){const n=[...this.children];for(const s in t){const l=n.find(i=>{const c=i;return c.name===s||c.label===s});if(!l)continue;const r=l;r.value=t[s]}}animateHeader(){var t;const n=(t=this.shadowRoot)==null?void 0:t.querySelector(".components");this.componentHeight<0&&(this.collapsed?this.componentHeight=n.clientHeight:(n.style.setProperty("transition","none"),n.style.setProperty("height","auto"),n.style.setProperty("padding","0.125rem 1rem 1rem"),this.componentHeight=n.clientHeight,requestAnimationFrame(()=>{n.style.setProperty("height","0px"),n.style.setProperty("padding","0 1rem 0"),n.style.setProperty("transition","height 0.5s cubic-bezier(0.4, 0, 0.2, 1), padding 0.5s cubic-bezier(0.4, 0, 0.2, 1)")}))),this.collapsed?(n.style.setProperty("height",`${this.componentHeight}px`),requestAnimationFrame(()=>{n.style.setProperty("height","0px"),n.style.setProperty("padding","0 1rem 0")})):(n.style.setProperty("height","0px"),n.style.setProperty("padding","0 1rem 0"),requestAnimationFrame(()=>{n.style.setProperty("height",`${this.componentHeight}px`),n.style.setProperty("padding","0.125rem 1rem 1rem")}))}onHeaderClick(){this.fixed||(this.collapsed=!this.collapsed,this.animateHeader())}handelSlotChange(t){t.target.assignedElements({flatten:!0}).forEach((n,s)=>{const l=s*.05;n.style.setProperty("transition-delay",`${l}s`)})}handlePointerEnter(){const t=this.renderRoot.querySelector(".expand-icon");this.collapsed?t==null||t.style.setProperty("animation","collapseAnim 0.5s"):t==null||t.style.setProperty("animation","expandAnim 0.5s")}handlePointerLeave(){const t=this.renderRoot.querySelector(".expand-icon");t==null||t.style.setProperty("animation","none")}render(){const t=this.label||this.icon||this.name||this.fixed,n=ls`<svg
       xmlns="http://www.w3.org/2000/svg"
       height="1.125rem"
       viewBox="0 0 24 24"
       width="1.125rem"
-    >
-      <path d="M0 0h24v24H0V0z" fill="none" />
-      <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" />
-    </svg>`,s=ls`<svg
-      xmlns="http://www.w3.org/2000/svg"
-      height="1.125rem"
-      viewBox="0 0 24 24"
-      width="1.125rem"
+      class="expand-icon"
     >
       <path d="M0 0h24v24H0z" fill="none" />
       <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z" />
-    </svg>`,l=this.collapsed?n:s,r=ls`
+    </svg>`,s=ls`
       <div
         class="header"
         title=${this.label??""}
+        @pointerenter=${this.handlePointerEnter}
+        @pointerleave=${this.handlePointerLeave}
         @click=${this.onHeaderClick}
       >
         ${this.label||this.icon||this.name?ls`<bim-label .icon=${this.icon}>${this.label}</bim-label>`:null}
-        ${this.fixed?null:l}
+        ${this.fixed?null:n}
       </div>
     `;return ls`
       <div class="parent">
-        ${t?r:null}
+        ${t?s:null}
         <div class="components">
-          <slot></slot>
+          <slot @slotchange=${this.handelSlotChange}></slot>
         </div>
       </div>
     `}};nre.styles=[gO.scrollbar,Lr`
@@ -1134,7 +1147,7 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
         cursor: pointer;
       }
 
-      :host(:not([fixed])) .header:hover svg {
+      :host(:not([fixed])) .header:hover .expand-icon {
         fill: var(--bim-ui_accent-base);
       }
 
@@ -1149,8 +1162,13 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
         padding: 0.75rem 1rem;
       }
 
-      .header svg {
+      .expand-icon {
         fill: var(--bim-ui_bg-contrast-80);
+        transition: transform 0.2s;
+      }
+
+      :host([collapsed]) .expand-icon {
+        transform: rotateZ(-180deg);
       }
 
       .title {
@@ -1166,19 +1184,67 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       .components {
         display: flex;
         flex-direction: column;
+        overflow: hidden;
         row-gap: 0.75rem;
         padding: 0.125rem 1rem 1rem;
+        box-sizing: border-box;
+        transition:
+          height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       :host(:not([fixed])[collapsed]) .components {
-        display: none;
+        padding: 0 1rem 0;
         height: 0px;
       }
 
       bim-label {
         pointer-events: none;
       }
-    `];let eU=nre;qz([un({type:String,reflect:!0})],eU.prototype,"icon");qz([un({type:String,reflect:!0})],eU.prototype,"label");qz([un({type:String,reflect:!0})],eU.prototype,"name");qz([un({type:Boolean,reflect:!0})],eU.prototype,"fixed");qz([un({type:Boolean,reflect:!0})],eU.prototype,"collapsed");var Dfe=Object.defineProperty,Zz=(e,t,n,s)=>{for(var l=void 0,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=i(t,n,l)||l);return l&&Dfe(t,n,l),l};const sre=class extends fr{constructor(){super(...arguments),this.vertical=!1,this.onValueChange=new Event("change"),this._canEmitEvents=!1,this._lastClickedElement=null,this._value=document.createElement("bim-option"),this.onOptionClick=t=>{this._value=t.target,this.dispatchEvent(this.onValueChange);for(const n of this.children)n instanceof $h&&(n.checked=n===t.target)}}get _options(){return[...this.querySelectorAll("bim-option")]}set value(t){const n=this.findOption(t);if(n){for(const s of this._options)s.checked=s===n;this._value=n,this._canEmitEvents&&this.dispatchEvent(this.onValueChange)}}get value(){return this._value.value}onSlotChange(t){const n=t.target.assignedElements();for(const s of n)s instanceof $h&&(s.noMark=!0,s.removeEventListener("click",this.onOptionClick),s.addEventListener("click",this.onOptionClick))}findOption(t){return this._options.find(n=>n instanceof $h?n.label===t||n.value===t:!1)}checkLastElement(t){t.stopPropagation();const n=t.target;if(this._lastClickedElement)this.animateFromTo(this._lastClickedElement,n);else if(n.parentNode){for(const s of n.parentNode.childNodes)if(s.nodeName!=="#text"&&s.hasAttribute("checked")){const l=s;this.animateFromTo(l,n)}}this._lastClickedElement=n}animateFromTo(t,n){t.offsetLeft<n.offsetLeft?(t.removeAttribute("animate-to-left"),n.setAttribute("animate-to-left","")):(n.removeAttribute("animate-to-left"),t.setAttribute("animate-to-left",""))}firstUpdated(){const t=[...this.children].find(n=>n instanceof $h&&n.checked);t&&(this._value=t)}render(){return ls`
+
+      ::slotted(*) {
+        transition:
+          transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      :host(:not([fixed])[collapsed]) ::slotted(*) {
+        transform: translateX(-20%);
+        opacity: 0;
+      }
+
+      @keyframes expandAnim {
+        0%,
+        100% {
+          transform: translateY(0%);
+        }
+        25% {
+          transform: translateY(-30%);
+        }
+        50% {
+          transform: translateY(10%);
+        }
+        75% {
+          transform: translateY(-30%);
+        }
+      }
+
+      @keyframes collapseAnim {
+        0%,
+        100% {
+          transform: translateY(0%) rotateZ(-180deg);
+        }
+        25% {
+          transform: translateY(30%) rotateZ(-180deg);
+        }
+        50% {
+          transform: translateY(-10%) rotateZ(-180deg);
+        }
+        75% {
+          transform: translateY(30%) rotateZ(-180deg);
+        }
+      }
+    `];let eU=nre;qz([un({type:String,reflect:!0})],eU.prototype,"icon");qz([un({type:String,reflect:!0})],eU.prototype,"label");qz([un({type:String,reflect:!0})],eU.prototype,"name");qz([un({type:Boolean,reflect:!0})],eU.prototype,"fixed");qz([un({type:Boolean,reflect:!0})],eU.prototype,"collapsed");var Dfe=Object.defineProperty,Zz=(e,t,n,s)=>{for(var l=void 0,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=i(t,n,l)||l);return l&&Dfe(t,n,l),l};const sre=class extends fr{constructor(){super(...arguments),this.vertical=!1,this.onValueChange=new Event("change"),this._canEmitEvents=!1,this.lastClickedElement=null,this._value=document.createElement("bim-option"),this.onOptionClick=t=>{this._value=t.target,this.dispatchEvent(this.onValueChange);for(const n of this.children)n instanceof $h&&(n.checked=n===t.target)}}get _options(){return[...this.querySelectorAll("bim-option")]}set value(t){const n=this.findOption(t);if(n){for(const s of this._options)s.checked=s===n;this._value=n,this._canEmitEvents&&this.dispatchEvent(this.onValueChange)}}get value(){return this._value.value}onSlotChange(t){const n=t.target.assignedElements();for(const s of n)s instanceof $h&&(s.noMark=!0,s.removeEventListener("click",this.onOptionClick),s.addEventListener("click",this.onOptionClick))}findOption(t){return this._options.find(n=>n instanceof $h?n.label===t||n.value===t:!1)}calculateElementsPosition(){const t=this;let n=null;const s=[],l=[];for(const r of t.childNodes)if(r.nodeName!=="#text"){const i=r;s.push(i),i.hasAttribute("checked")&&(n=i)}if(n&&s.length>0){s.sort((i,c)=>i.offsetLeft-c.offsetLeft);const r=s.indexOf(n);for(let i=0;i<s.length;i++)i!==r&&l.push(s[i]);l.forEach(i=>{this.animateFromTo(i,n)})}}checkLastElement(t){this.calculateElementsPosition(),t.stopPropagation();const n=t.target;if(this.lastClickedElement)this.animateFromTo(this.lastClickedElement,n);else if(n.parentNode){for(const s of n.parentNode.childNodes)if(s.nodeName!=="#text"&&s.hasAttribute("checked")){const l=s;this.animateFromTo(l,n)}}this.lastClickedElement=n}animateFromTo(t,n){t.offsetLeft<n.offsetLeft?(t.removeAttribute("animate-to-left"),n.setAttribute("animate-to-left","")):(n.removeAttribute("animate-to-left"),t.setAttribute("animate-to-left",""))}firstUpdated(){const t=[...this.children].find(n=>n instanceof $h&&n.checked);t&&(this._value=t),this.calculateElementsPosition()}render(){return ls`
       <bim-input
         .vertical=${this.vertical}
         .label=${this.label}
@@ -1202,10 +1268,10 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       overflow: hidden;
       min-width: min-content;
       min-height: min-content;
+      transition: background-color 0.2s;
     }
 
-    ::slotted(bim-option)::before,
-    ::slotted(bim-option)::after {
+    ::slotted(bim-option)::before {
       content: "";
       position: absolute;
       top: 0;
@@ -1215,25 +1281,16 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       border-radius: inherit;
       background-color: var(--bim-ui_main-base);
       box-sizing: border-box;
-      transition:
-        left 0.3s,
-        background-color 0.1s;
+      transform: translateX(102%);
+      transition: transform 0.3s;
     }
 
-    ::slotted(bim-option)::before {
-      left: 100%;
+    ::slotted(bim-option[animate-to-left])::before {
+      transform: translateX(-102%);
     }
 
-    ::slotted(bim-option)::after {
-      left: -100%;
-    }
-
-    ::slotted(bim-option[checked]:not([animate-to-left]))::before {
-      left: 0;
-    }
-
-    ::slotted(bim-option[animate-to-left][checked])::after {
-      left: 0;
+    ::slotted(bim-option[checked])::before {
+      transform: translateX(0);
     }
 
     ::slotted(bim-option[checked]) {
