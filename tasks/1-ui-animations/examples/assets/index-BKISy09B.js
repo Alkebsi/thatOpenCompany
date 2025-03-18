@@ -1589,7 +1589,7 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
         flex-wrap: wrap;
         margin-bottom: 0.5rem;
       }
-    `];let V4=hre;n5([$F()],V4.prototype,"_filteredData",2);n5([un({type:Boolean,attribute:"headers-hidden",reflect:!0})],V4.prototype,"headersHidden",2);n5([un({type:String,attribute:"min-col-width",reflect:!0})],V4.prototype,"minColWidth",2);n5([un({type:Array,attribute:!1})],V4.prototype,"columns",1);n5([un({type:Array,attribute:!1})],V4.prototype,"data",1);n5([un({type:Boolean,reflect:!0})],V4.prototype,"expanded",2);n5([un({type:Boolean,reflect:!0,attribute:"selectable-rows"})],V4.prototype,"selectableRows",2);n5([un({attribute:!1})],V4.prototype,"selection",2);n5([un({type:Boolean,attribute:"no-indentation",reflect:!0})],V4.prototype,"noIndentation",2);n5([un({type:Boolean,reflect:!0})],V4.prototype,"loading",2);n5([$F()],V4.prototype,"_errorLoading",2);var Gfe=Object.defineProperty,Vfe=Object.getOwnPropertyDescriptor,sU=(e,t,n,s)=>{for(var l=s>1?void 0:s?Vfe(t,n):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=(s?i(t,n,l):i(l))||l);return s&&l&&Gfe(t,n,l),l};const fre=class extends fr{constructor(){super(...arguments),this._switchers=[],this.bottom=!1,this.switchersHidden=!1,this.floating=!1,this.switchersFull=!1,this.onTabHiddenChange=t=>{const n=t.target;n instanceof fy&&!n.hidden&&(n.removeEventListener("hiddenchange",this.onTabHiddenChange),this.tab=n.name,n.addEventListener("hiddenchange",this.onTabHiddenChange))}}set tab(t){this._tab=t;const n=[...this.children],s=n.find(l=>l instanceof fy&&l.name===t);for(const l of n){if(!(l instanceof fy))continue;l.hidden=s!==l;const r=this.getTabSwitcher(l.name);r&&r.toggleAttribute("data-active",!l.hidden)}}get tab(){return this._tab}getTabSwitcher(t){return this._switchers.find(n=>n.getAttribute("data-name")===t)}createSwitchers(){this._switchers=[];for(const t of this.children){if(!(t instanceof fy))continue;const n=document.createElement("div");n.addEventListener("click",()=>{this.tab===t.name?this.toggleAttribute("tab",!1):this.tab=t.name,this.setAnimatedBackgound()}),n.setAttribute("data-name",t.name),n.className="switcher";const s=document.createElement("bim-label");s.textContent=t.label??null,s.icon=t.icon,n.append(s),this._switchers.push(n)}}updateSwitchers(){for(const t of this.children){if(!(t instanceof fy))continue;const n=this._switchers.find(l=>l.getAttribute("data-name")===t.name);if(!n)continue;const s=n.querySelector("bim-label");s&&(s.textContent=t.label??null,s.icon=t.icon)}}onSlotChange(t){this.createSwitchers();const n=t.target.assignedElements(),s=n.find(l=>l instanceof fy?this.tab?l.name===this.tab:!l.hidden:!1);s&&s instanceof fy&&(this.tab=s.name);for(const l of n){if(!(l instanceof fy)){l.remove();continue}l.removeEventListener("hiddenchange",this.onTabHiddenChange),s!==l&&(l.hidden=!0),l.addEventListener("hiddenchange",this.onTabHiddenChange)}}doubleRequestAnimationFrames(t){requestAnimationFrame(()=>requestAnimationFrame(t))}setAnimatedBackgound(t=!1){var n;const s=this.renderRoot.querySelector(".animated-background"),l=[...((n=this.renderRoot.querySelector(".switchers"))==null?void 0:n.querySelectorAll(".switcher"))||[]].filter(r=>r.hasAttribute("data-active"))[0];requestAnimationFrame(()=>{var r,i,c,h;const d=(h=(c=(i=(r=l==null?void 0:l.parentElement)==null?void 0:r.shadowRoot)==null?void 0:i.querySelector("bim-input"))==null?void 0:c.shadowRoot)==null?void 0:h.querySelector(".input"),I={width:l==null?void 0:l.clientWidth,height:l==null?void 0:l.clientHeight,top:((l==null?void 0:l.offsetTop)??0)-((d==null?void 0:d.offsetTop)??0),left:((l==null?void 0:l.offsetLeft)??0)-((d==null?void 0:d.offsetLeft)??0)};s==null||s.style.setProperty("width",`${I.width}px`),s==null||s.style.setProperty("height",`${I.height}px`),s==null||s.style.setProperty("top",`${I.top}px`),s==null||s.style.setProperty("left",`${I.left}px`)}),t&&this.doubleRequestAnimationFrames(()=>{const r="ease";s==null||s.style.setProperty("transition",`width ${.3}s ${r}, height ${.3}s ${r}, top ${.3}s ${r}, left ${.3}s ${r}`)})}firstUpdated(){requestAnimationFrame(()=>{this.setAnimatedBackgound(!0)})}render(){return ls`
+    `];let V4=hre;n5([$F()],V4.prototype,"_filteredData",2);n5([un({type:Boolean,attribute:"headers-hidden",reflect:!0})],V4.prototype,"headersHidden",2);n5([un({type:String,attribute:"min-col-width",reflect:!0})],V4.prototype,"minColWidth",2);n5([un({type:Array,attribute:!1})],V4.prototype,"columns",1);n5([un({type:Array,attribute:!1})],V4.prototype,"data",1);n5([un({type:Boolean,reflect:!0})],V4.prototype,"expanded",2);n5([un({type:Boolean,reflect:!0,attribute:"selectable-rows"})],V4.prototype,"selectableRows",2);n5([un({attribute:!1})],V4.prototype,"selection",2);n5([un({type:Boolean,attribute:"no-indentation",reflect:!0})],V4.prototype,"noIndentation",2);n5([un({type:Boolean,reflect:!0})],V4.prototype,"loading",2);n5([$F()],V4.prototype,"_errorLoading",2);var Gfe=Object.defineProperty,Vfe=Object.getOwnPropertyDescriptor,sU=(e,t,n,s)=>{for(var l=s>1?void 0:s?Vfe(t,n):t,r=e.length-1,i;r>=0;r--)(i=e[r])&&(l=(s?i(t,n,l):i(l))||l);return s&&l&&Gfe(t,n,l),l};const fre=class extends fr{constructor(){super(...arguments),this._switchers=[],this.bottom=!1,this.switchersHidden=!1,this.floating=!1,this.switchersFull=!1,this.onTabHiddenChange=t=>{const n=t.target;n instanceof fy&&!n.hidden&&(n.removeEventListener("hiddenchange",this.onTabHiddenChange),this.tab=n.name,n.addEventListener("hiddenchange",this.onTabHiddenChange))}}set tab(t){this._tab=t;const n=[...this.children],s=n.find(l=>l instanceof fy&&l.name===t);for(const l of n){if(!(l instanceof fy))continue;l.hidden=s!==l;const r=this.getTabSwitcher(l.name);r&&r.toggleAttribute("data-active",!l.hidden)}s||(this._tab="hidden",this.setAttribute("tab","hidden"))}get tab(){return this._tab}getTabSwitcher(t){return this._switchers.find(n=>n.getAttribute("data-name")===t)}createSwitchers(){this._switchers=[];for(const t of this.children){if(!(t instanceof fy))continue;const n=document.createElement("div");n.addEventListener("click",()=>{this.tab===t.name?this.toggleAttribute("tab",!1):this.tab=t.name,this.setAnimatedBackgound()}),n.setAttribute("data-name",t.name),n.className="switcher";const s=document.createElement("bim-label");s.textContent=t.label??null,s.icon=t.icon,n.append(s),this._switchers.push(n)}}updateSwitchers(){for(const t of this.children){if(!(t instanceof fy))continue;const n=this._switchers.find(l=>l.getAttribute("data-name")===t.name);if(!n)continue;const s=n.querySelector("bim-label");s&&(s.textContent=t.label??null,s.icon=t.icon)}}onSlotChange(t){this.createSwitchers();const n=t.target.assignedElements(),s=n.find(l=>l instanceof fy?this.tab?l.name===this.tab:!l.hidden:!1);s&&s instanceof fy&&(this.tab=s.name);for(const l of n){if(!(l instanceof fy)){l.remove();continue}l.removeEventListener("hiddenchange",this.onTabHiddenChange),s!==l&&(l.hidden=!0),l.addEventListener("hiddenchange",this.onTabHiddenChange)}}doubleRequestAnimationFrames(t){requestAnimationFrame(()=>requestAnimationFrame(t))}setAnimatedBackgound(t=!1){var n;const s=this.renderRoot.querySelector(".animated-background"),l=[...((n=this.renderRoot.querySelector(".switchers"))==null?void 0:n.querySelectorAll(".switcher"))||[]].filter(r=>r.hasAttribute("data-active"))[0];requestAnimationFrame(()=>{var r,i,c,h;const d=(h=(c=(i=(r=l==null?void 0:l.parentElement)==null?void 0:r.shadowRoot)==null?void 0:i.querySelector("bim-input"))==null?void 0:c.shadowRoot)==null?void 0:h.querySelector(".input"),I={width:l==null?void 0:l.clientWidth,height:l==null?void 0:l.clientHeight,top:((l==null?void 0:l.offsetTop)??0)-((d==null?void 0:d.offsetTop)??0),left:((l==null?void 0:l.offsetLeft)??0)-((d==null?void 0:d.offsetLeft)??0)};l?(s==null||s.style.setProperty("width",`${I.width}px`),s==null||s.style.setProperty("height",`${I.height}px`),s==null||s.style.setProperty("left",`${I.left}px`)):s==null||s.style.setProperty("width","0"),this.bottom?(s==null||s.style.setProperty("top","100%"),s==null||s.style.setProperty("transform","translateY(-100%)")):s==null||s.style.setProperty("top",`${I.top}px`)}),t&&this.doubleRequestAnimationFrames(()=>{const r="ease";s==null||s.style.setProperty("transition",`width ${.3}s ${r}, height ${.3}s ${r}, top ${.3}s ${r}, left ${.3}s ${r}`)})}firstUpdated(){requestAnimationFrame(()=>{this.setAnimatedBackgound(!0)}),window.addEventListener("resize",()=>{this.setAnimatedBackgound()})}render(){return ls`
       <div class="parent">
         <div class="switchers">
           <div class="animated-background"></div>
@@ -1612,6 +1612,8 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
 
       .parent {
         display: grid;
+        overflow: hidden;
+        position: relative;
         grid-template: "switchers" auto "content" 1fr;
         height: 100%;
       }
@@ -1661,8 +1663,17 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
       }
 
       .content {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
         grid-area: content;
+        max-height: 100vh;
         overflow: auto;
+        transition: max-height 0.3s;
+      }
+
+      :host([tab="hidden"]) .content {
+        max-height: 0;
       }
 
       .animated-background {
@@ -1684,10 +1695,6 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
 
       :host(:not([tab])) .content {
         display: none;
-      }
-
-      :host([floating]) {
-        background-color: transparent;
       }
 
       :host([floating]) .switchers {
@@ -1727,10 +1734,18 @@ var Que=Object.defineProperty,$ue=(e,t,n)=>t in e?Que(e,t,{enumerable:!0,configu
     :host {
       display: block;
       height: 100%;
+      grid-row-start: 1;
+      grid-column-start: 1;
+      overflow: hidden;
+      transition:
+        opacity 0.3s,
+        transform 0.4s;
     }
 
     :host([hidden]) {
-      display: none;
+      opacity: 0;
+      transform: translateY(-100%);
+      pointer-events: none;
     }
   `;let fy=dre;kj([un({type:String,reflect:!0})],fy.prototype,"name",2);kj([un({type:String,reflect:!0})],fy.prototype,"label",1);kj([un({type:String,reflect:!0})],fy.prototype,"icon",2);kj([un({type:Boolean,reflect:!0})],fy.prototype,"hidden",1);/**
  * @license
