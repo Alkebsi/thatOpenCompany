@@ -219,7 +219,7 @@ var Vn=Object.defineProperty;var Wn=(i,t,e)=>t in i?Vn(i,t,{enumerable:!0,config
       clip-path: ellipse(0 0 at center bottom);
       box-sizing: border-box;
       transition:
-        clip-path 0.3s cubic-bezier(0.72, 0.1, 0.43, 0.93),
+        clip-path 0.24s cubic-bezier(0.65, 0.05, 0.36, 1),
         transform 0.15s;
     }
 
@@ -374,10 +374,10 @@ var Vn=Object.defineProperty;var Wn=(i,t,e)=>t in i?Vn(i,t,{enumerable:!0,config
     }
 
     .parent-label {
-      --background: #fff;
+      --background: var(--bim-ui_main-base);
       --border: #dfdfe6;
       --border-hover: #bbc1e1;
-      --border-active: var(--bim-ui_main-base);
+      --border-active: #fff;
       display: flex;
       justify-content: space-between;
       align-items: center;
