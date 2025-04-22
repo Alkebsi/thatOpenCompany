@@ -1,8 +1,8 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as u,C as s}from"./index-DFXvO4lv.js";import"./state-VyZkHw6A.js";import{T as g,x as b}from"./lit-html-CuBe1DX_.js";import{a as h,i as D,t as T,n as f}from"./ref-DfidMTJ6.js";/**
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-CcM1cmGY.js";import"./state-VyZkHw6A.js";import{T as h,x as b}from"./lit-html-CuBe1DX_.js";import{a as D,i as T,t as f,n as y}from"./ref-DfidMTJ6.js";/**
  * @license
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const d="important",y=" !"+d,r=h(class extends D{constructor(t){var n;if(super(t),t.type!==T.ATTRIBUTE||t.name!=="style"||((n=t.strings)==null?void 0:n.length)>2)throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.")}render(t){return Object.keys(t).reduce((n,i)=>{const e=t[i];return e==null?n:n+`${i=i.includes("-")?i:i.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g,"-$&").toLowerCase()}:${e};`},"")}update(t,[n]){const{style:i}=t.element;if(this.ft===void 0)return this.ft=new Set(Object.keys(n)),this.render(n);for(const e of this.ft)n[e]==null&&(this.ft.delete(e),e.includes("-")?i.removeProperty(e):i[e]=null);for(const e in n){const o=n[e];if(o!=null){this.ft.add(e);const a=typeof o=="string"&&o.endsWith(y);e.includes("-")||a?i.setProperty(e,a?o.slice(0,-11):o,a?d:""):i[e]=o}}return g}});u.init();const m=s.create(()=>b`
+ */const p="important",k=" !"+p,r=D(class extends T{constructor(t){var n;if(super(t),t.type!==f.ATTRIBUTE||t.name!=="style"||((n=t.strings)==null?void 0:n.length)>2)throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.")}render(t){return Object.keys(t).reduce((n,i)=>{const o=t[i];return o==null?n:n+`${i=i.includes("-")?i:i.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g,"-$&").toLowerCase()}:${o};`},"")}update(t,[n]){const{style:i}=t.element;if(this.ft===void 0)return this.ft=new Set(Object.keys(n)),this.render(n);for(const o of this.ft)n[o]==null&&(this.ft.delete(o),o.includes("-")?i.removeProperty(o):i[o]=null);for(const o in n){const e=n[o];if(e!=null){this.ft.add(o);const a=typeof e=="string"&&e.endsWith(k);o.includes("-")||a?i.setProperty(o,a?e.slice(0,-11):e,a?p:""):i[o]=e}}return h}});d.init();const m=s.create(()=>b`
     <bim-panel label="My Panel" icon="mynaui:panel-left-solid" style="width: 24rem;">
       <bim-panel-section label="Panel Section" icon="solar:settings-bold">
         <bim-label>This is just a panel section... cool, right?</bim-label>
@@ -25,16 +25,16 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as u,C as s}from"./index-D
   `),c=s.create(()=>b`
     <bim-panel label="Table" icon="material-symbols:table" style="height: 25rem">
       <bim-panel-section label="Assignments" fixed>
-        <bim-table ${f(n=>{if(!n)return;const i=n,e={padding:"0.25rem 0.375rem",borderRadius:"0.25rem"};i.dataTransform={Status:o=>{if(typeof o!="string")return o;if(o==="In Progress"){const a={...e,backgroundColor:"#3c59c3",color:"white"};return b`<bim-label style=${r(a)}>${o}</bim-label>`}if(o==="Pending"){const a={...e,backgroundColor:"#5c5c5c",color:"white"};return b`<bim-label style=${r(a)}>${o}</bim-label>`}if(o==="Completed"){const a={...e,backgroundColor:"#3a7829",color:"white"};return b`<bim-label style=${r(a)}>${o}</bim-label>`}if(o==="Scheduled"){const a={...e,backgroundColor:"#9e2980",color:"white"};return b`<bim-label style=${r(a)}>${o}</bim-label>`}return o},AssignedTo:(o,a)=>b`
+        <bim-table ${y(n=>{if(!n)return;const i=n,o={padding:"0.25rem 0.375rem",borderRadius:"0.25rem"};i.dataTransform={Status:e=>{if(typeof e!="string")return e;if(e==="In Progress"){const a={...o,backgroundColor:"#3c59c3",color:"white"};return b`<bim-label style=${r(a)}>${e}</bim-label>`}if(e==="Pending"){const a={...o,backgroundColor:"#5c5c5c",color:"white"};return b`<bim-label style=${r(a)}>${e}</bim-label>`}if(e==="Completed"){const a={...o,backgroundColor:"#3a7829",color:"white"};return b`<bim-label style=${r(a)}>${e}</bim-label>`}if(e==="Scheduled"){const a={...o,backgroundColor:"#9e2980",color:"white"};return b`<bim-label style=${r(a)}>${e}</bim-label>`}return e},AssignedTo:(e,a)=>b`
           <div style="display: flex; gap: 0.5rem">
-            <bim-label>${o}</bim-label>
-            <bim-button @click=${()=>{const{Task:p}=a;alert(`Will send ${o} a reminder of ${p}!`)}} icon="mingcute:send-fill" tooltip-title="Send reminder!"></bim-button>
+            <bim-label>${e}</bim-label>
+            <bim-button @click=${()=>{const{Task:g}=a;alert(`Will send ${e} a reminder of ${g}!`)}} icon="mingcute:send-fill" tooltip-title="Send reminder!"></bim-button>
           </div> 
         `},i.data=[{data:{Task:"Code Review",Description:"Review code for the new feature implementation",AssignedTo:"Alice",DueDate:"2024-05-20",Status:"In Progress"},children:[{data:{Task:"Code Review - Round 1",Description:"First pass code review",AssignedTo:"Alice",DueDate:"2024-05-18",Status:"Completed"}},{data:{Task:"Address Comments",Description:"Address the comments from the first round of review",AssignedTo:"Author of Code",DueDate:"2024-05-19",Status:"In Progress"}},{data:{Task:"Code Review - Round 2",Description:"Second pass code review after addressing comments",AssignedTo:"Alice",DueDate:"2024-05-20",Status:"Pending"}},{data:{Task:"Merge Code",Description:"Merge reviewed code after final approval",AssignedTo:"Project Lead",DueDate:"2024-05-21",Status:"Not Started"}}]},{data:{Task:"Write Documentation",Description:"Write user documentation for the latest release",AssignedTo:"Bob",DueDate:"2024-05-25",Status:"Pending"}},{data:{Task:"Unit Testing",Description:"Create and run unit tests for the new modules",AssignedTo:"Charlie",DueDate:"2024-05-22",Status:"Completed"},children:[{data:{Task:"Create Test Cases",Description:"Identify and document all necessary test cases",AssignedTo:"Charlie",DueDate:"2024-05-19",Status:"Completed"}},{data:{Task:"Implement Unit Tests",Description:"Write the actual unit tests based on the test cases",AssignedTo:"Charlie",DueDate:"2024-05-20",Status:"Completed"}},{data:{Task:"Run Unit Tests",Description:"Execute the unit tests and analyze the results",AssignedTo:"Charlie",DueDate:"2024-05-21",Status:"Completed"}},{data:{Task:"Fix Failing Tests",Description:"Address any failing unit tests and correct the code",AssignedTo:"Charlie",DueDate:"2024-05-22",Status:"Completed"}},{data:{Task:"Refactor Code",Description:"Improve the code structure and readability",AssignedTo:"Charlie",DueDate:"2024-05-23",Status:"Completed"}}]},{data:{Task:"Deploy to Staging",Description:"Deploy the current build to the staging environment",AssignedTo:"David",DueDate:"2024-05-18",Status:"Pending"},children:[{data:{Task:"Prepare Build Package",Description:"Create the deployable package for the application",AssignedTo:"David",DueDate:"2024-05-16",Status:"Completed"}},{data:{Task:"Configure Staging Environment",Description:"Set up the staging environment with necessary configurations",AssignedTo:"David",DueDate:"2024-05-17",Status:"Completed"}},{data:{Task:"Upload Build Package",Description:"Upload the build package to the staging server",AssignedTo:"David",DueDate:"2024-05-18",Status:"Completed"}},{data:{Task:"Run Deployment Script",Description:"Execute the deployment script to deploy the application",AssignedTo:"David",DueDate:"2024-05-18",Status:"In Progress"}},{data:{Task:"Verify Deployment",Description:"Check the application in the staging environment to ensure proper deployment",AssignedTo:"David",DueDate:"2024-05-19",Status:"Pending"}}]},{data:{Task:"UI Design",Description:"Design the user interface for the new dashboard",AssignedTo:"Eve",DueDate:"2024-05-30",Status:"In Progress"}},{data:{Task:"Database Migration",Description:"Migrate the database schema to the new version",AssignedTo:"Frank",DueDate:"2024-05-21",Status:"Not Started"}},{data:{Task:"Client Meeting",Description:"Discuss project requirements and deliverables",AssignedTo:"Grace",DueDate:"2024-05-19",Status:"Scheduled"}},{data:{Task:"Bug Fixing",Description:"Fix critical bugs reported by QA",AssignedTo:"Hank",DueDate:"2024-05-23",Status:"In Progress"}},{data:{Task:"Performance Optimization",Description:"Optimize the application for better performance",AssignedTo:"Ivy",DueDate:"2024-05-27",Status:"Pending"}},{data:{Task:"Code Merge",Description:"Merge the feature branch into the main branch",AssignedTo:"Jack",DueDate:"2024-05-24",Status:"Completed"}}]})}></bim-table>
       </bim-panel-section>
     </bim-panel> 
-  `),k=s.create(()=>b`
-    <bim-panel>
+  `),u=s.create(()=>b`
+    <bim-panel label="Right Panel" icon="mynaui:panel-right-solid" style="width: 20rem">
       <bim-panel-section label="Panel Section" icon="solar:settings-bold">
         <bim-button label="Button With Nestings">
           <bim-context-menu>
@@ -55,7 +55,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as u,C as s}from"./index-D
         </bim-selector>
       </bim-panel-section>
     </bim-panel>
-  `),C=s.create(()=>{const t=()=>window.open("https://people.thatopen.com/home"),n=()=>{u.toggleTheme()},{activationButton:i}=m;i.vertical=!0;const{activationButton:e}=c;return e.vertical=!0,b`
+  `),C=s.create(()=>{const t=()=>window.open("https://people.thatopen.com/home"),n=()=>{d.toggleTheme()},{activationButton:i}=u,{activationButton:o}=m,{activationButton:e}=c;return i.vertical=!0,o.vertical=!0,e.vertical=!0,b`
    <bim-tabs>
     <bim-tab label="Toolbar A">
       <bim-toolbar>
@@ -64,6 +64,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as u,C as s}from"./index-D
           <bim-button label="Home" vertical icon="ic:round-home"></bim-button>
           ${m.activationButton}
           <bim-button label="That Open People" vertical icon="eva:people-fill" @click=${t}></bim-button>
+          ${u.activationButton}
           ${c.activationButton}
           <bim-toolbar-group>
             <bim-button icon="solar:settings-bold"></bim-button>
@@ -82,7 +83,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as u,C as s}from"./index-D
       </bim-toolbar>
     </bim-tab>
    </bim-tabs> 
-  `}),A=s.create(()=>{const t=s.create(()=>b`
+  `}),v=s.create(()=>{const t=s.create(()=>b`
     <bim-tabs floating style="justify-self: center; border-radius: 0.5rem;">
       <bim-tab label="Import">
         <bim-toolbar>
@@ -152,5 +153,5 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as u,C as s}from"./index-D
       "ribbon ribbon ribbon" auto
       "leftPanel viewport rightPanel" 1fr
       "leftPanel bottomPanel bottomPanel" auto
-      / auto 1fr 20rem
-    `,elements:{ribbon:C,leftPanel:m,viewport:A,bottomPanel:c,rightPanel:k}}};l.addEventListener("layoutchange",()=>{l.layout?alert(`Your have changed to "${l.layout}" layout!`):alert("Your have cleaned up your layout!")});const v=document.body.querySelector("bim-button");v.addEventListener("click",()=>{const{layout:t}=l;switch(t){case void 0:l.layout="main";break;case"main":l.layout="app";break;case"app":l.layout=void 0;break;default:console.log("No follow up action")}});
+      / auto 1fr auto
+    `,elements:{ribbon:C,leftPanel:m,viewport:v,bottomPanel:c,rightPanel:u}}};l.addEventListener("layoutchange",()=>{l.layout?alert(`Your have changed to "${l.layout}" layout!`):alert("Your have cleaned up your layout!")});const A=document.body.querySelector("bim-button");A.addEventListener("click",()=>{const{layout:t}=l;switch(t){case void 0:l.layout="main";break;case"main":l.layout="app";break;case"app":l.layout=void 0;break;default:console.log("No follow up action")}});
