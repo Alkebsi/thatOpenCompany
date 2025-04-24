@@ -1,0 +1,1 @@
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{T as t,C as m}from"./index-BY8X9Nxx.js";import"./lit-html-CuBe1DX_.js";import{M as i}from"./index-DzzTT3zA.js";import"./state-VyZkHw6A.js";import"./ref-DfidMTJ6.js";t.init();i.init();const o=document.querySelector("bim-world[name='main']"),n=new m;o.components=n;n.init();const{world:r}=o;console.log(r);

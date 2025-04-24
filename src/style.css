@@ -1,8 +1,9 @@
 /* Colors */
 :root {
   --color-text: #010510;
-  --color-highlights: #aeb3b9;
-  --color-lines: #dedfe2;
+  --color-highlights: #9599a3;
+  --color-background: #cad2db;
+  --color-lines: #bbbbbd;
 }
 
 /* Loading Fonts */
@@ -27,6 +28,10 @@
   padding: 0;
   color: var(--color-text);
   font-family: 'Mona Sans', 'Mona Sans Fallback';
+}
+
+html {
+  background-color: var(--color-background);
 }
 
 /*
@@ -94,7 +99,7 @@
 .card {
   position: relative;
   margin: 0 25px;
-  padding: 15px 0;
+  padding: 0px 0;
   list-style-type: decimal-leading-zero;
   list-style-position: inside;
   font-size: 1.3em;
@@ -106,15 +111,41 @@
 .card-text {
   display: inline-block;
   margin-bottom: -6px;
-  width: calc(100% - 100px);
+  max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis
+  text-overflow: ellipsis;
+  background: linear-gradient(to right, transparent, transparent),
+    linear-gradient(to right, var(--color-text), var(--color-highlights));
+  background-size: 100% 1px, 0 1px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
 }
 
 .card a {
   text-decoration: none;
   outline: none;
+  padding: 15px 0;
+}
+
+.demo-link {
+  display: inline-block;
+  width: calc(100% - 150px);
+}
+
+.card-before-link {
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  padding: 15px 5px !important;
+  font-size: 0.8em;
+  transform: translateY(-50%);
+  line-height: 24px;
+}
+
+.card-before-link span:after {
+  content: 'Old V.';
 }
 
 .github-link-img {
@@ -123,6 +154,11 @@
   right: 5px;
   transform: translateY(-50%);
   width: 30px;
+}
+
+/* Card Hover Effect */
+.card a:hover .card-text {
+  background-size: 0 1px, 100% 1px;
 }
 
 /* Footer */
@@ -150,24 +186,34 @@ footer a {
   }
 
   .card {
-    padding: 15px 25px;
+    padding: 0px 25px;
+  }
+
+  .demo-link {
+    width: calc(100% - 190px);
+  }
+
+  .card-before-link {
+    right: 65px;
   }
 
   .github-link-img {
     right: 25px;
+    filter: invert(20%);
+  }
+
+  .card-before-link span:after {
+    content: 'Old Version';
   }
 }
 
 /* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text: #fff;
+    --color-text: #d7d7d8;
     --color-highlights: #9399a1;
+    --color-background: #17171d;
     --color-lines: #383c41;
-  }
-
-  html {
-    background: black;
   }
 
   .github-link-img {
