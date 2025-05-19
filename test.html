@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI Test</title>
+    <base target="_blank" />
+    
+    <style>
+      #host {
+        display: flex;
+        border-radius: 14px;
+        background-color: yellow;
+        overflow: auto;
+        transition: all 1s;
+      }
+      #parent {
+        display: flex;
+        position: relative;
+        flex: 1;
+        gap: 0.5rem;
+        flex-direction: column;
+        pointer-events: auto;
+        overflow: auto;
+        height: auto;
+        background: gray;
+        transition: all 1s;
+      }
+      .panel {
+        display: flex;
+        position: relative;
+        margin: 0;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        overflow: auto;
+        width: 50vw;
+        height: auto;
+        transition: all 1s;
+      }
+      #panel-a {
+        background: red;
+      }
+      #panel-b {
+        background: green;
+      }
+      #panel-c {
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="host">
+      <div id="parent">
+        <div class="panel" id="panel-a" onclick="clicked(event)">
+          <p>
+            aliquip esse anim reprehenderit sit aute elit mollit adipisicing elit reprehenderit dolore elit ex magna in culpa sit eiusmod elit ipsum ut adipisicing excepteur excepteur et velit do ipsum sint
+          </p>
+        </div>
+        <div class="panel" id="panel-b" onclick="clicked(event)">
+          <p>
+            velit nulla magna proident irure et exercitation labore amet ex incididunt aliqua sunt ea voluptate mollit ut proident do irure consequat esse consectetur pariatur laboris aliqua aliqua est commodo veniam ut commodo sint sint id ullamco eu consectetur aliquip ea sit duis duis cillum dolore
+          </p>
+        </div>
+        <div class="panel" id="panel-c" onclick="clicked(event)">
+          <p>
+            tempor aliquip qui pariatur labore laboris commodo eu proident exercitation officia et dolor nostrud elit in officia irure esse ea
+          </p>
+        </div>
+      </div>
+    </div>
+    <script>
+      function clicked(e) {
+        e.target.style.setProperty("height", "100px")
+      }
+    </script>
+  </body>
+</html>

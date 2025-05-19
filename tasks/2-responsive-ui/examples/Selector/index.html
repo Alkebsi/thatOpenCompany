@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" class="bim-ui-dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selector</title>
+  <style>
+    html {
+      font-family: sans-serif;
+    }
+
+    body {
+      background-color: var(--bim-ui_bg-base);
+    }
+
+    bim-selector {
+      width: 26rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      .container {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: max-content;
+        padding: 20px 40px;
+      }
+
+      bim-selector {
+        width: 100%;
+      }
+    }
+  </style>
+  <script type="module" crossorigin src="../assets/selector.js"></script>
+  <link rel="modulepreload" crossorigin href="../assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="../assets/lit-html-CuBe1DX_.js">
+  <link rel="modulepreload" crossorigin href="../assets/state-VyZkHw6A.js">
+  <link rel="modulepreload" crossorigin href="../assets/ref-DfidMTJ6.js">
+  <link rel="modulepreload" crossorigin href="../assets/index-CEtFlQYm.js">
+</head>
+
+<body>
+  <div class="container">  
+    <bim-selector label="Camera Projection">
+      <bim-option icon="solar:settings-bold" label="Orthographic" value="0" checked></bim-option>
+      <bim-option label="Perspective" value="1"></bim-option>
+      <bim-option label="Custom"></bim-option>
+    </bim-selector>
+  </div>
+</body>
+
+</html>
