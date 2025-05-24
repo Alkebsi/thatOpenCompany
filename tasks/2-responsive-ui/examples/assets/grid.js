@@ -1,9 +1,9 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-CEtFlQYm.js";import"./state-VyZkHw6A.js";import{T as h,x as b}from"./lit-html-CuBe1DX_.js";import{a as D,i as T,t as f,n as y}from"./ref-DfidMTJ6.js";/**
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-CUbqffeq.js";import"./state-VyZkHw6A.js";import{T as h,x as b}from"./lit-html-CuBe1DX_.js";import{a as D,i as f,t as T,n as y}from"./ref-DfidMTJ6.js";/**
  * @license
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
- */const p="important",k=" !"+p,r=D(class extends T{constructor(t){var n;if(super(t),t.type!==f.ATTRIBUTE||t.name!=="style"||((n=t.strings)==null?void 0:n.length)>2)throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.")}render(t){return Object.keys(t).reduce((n,i)=>{const o=t[i];return o==null?n:n+`${i=i.includes("-")?i:i.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g,"-$&").toLowerCase()}:${o};`},"")}update(t,[n]){const{style:i}=t.element;if(this.ft===void 0)return this.ft=new Set(Object.keys(n)),this.render(n);for(const o of this.ft)n[o]==null&&(this.ft.delete(o),o.includes("-")?i.removeProperty(o):i[o]=null);for(const o in n){const e=n[o];if(e!=null){this.ft.add(o);const a=typeof e=="string"&&e.endsWith(k);o.includes("-")||a?i.setProperty(o,a?e.slice(0,-11):e,a?p:""):i[o]=e}}return h}});d.init();const m=s.create(()=>b`
-    <bim-panel label="My Panel" icon="mynaui:panel-left-solid" style="width: 24rem;">
+ */const p="important",k=" !"+p,r=D(class extends f{constructor(t){var n;if(super(t),t.type!==T.ATTRIBUTE||t.name!=="style"||((n=t.strings)==null?void 0:n.length)>2)throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.")}render(t){return Object.keys(t).reduce((n,i)=>{const o=t[i];return o==null?n:n+`${i=i.includes("-")?i:i.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g,"-$&").toLowerCase()}:${o};`},"")}update(t,[n]){const{style:i}=t.element;if(this.ft===void 0)return this.ft=new Set(Object.keys(n)),this.render(n);for(const o of this.ft)n[o]==null&&(this.ft.delete(o),o.includes("-")?i.removeProperty(o):i[o]=null);for(const o in n){const e=n[o];if(e!=null){this.ft.add(o);const a=typeof e=="string"&&e.endsWith(k);o.includes("-")||a?i.setProperty(o,a?e.slice(0,-11):e,a?p:""):i[o]=e}}return h}});d.init();const m=s.create(()=>b`
+    <bim-panel label="My Panel" id="my-panel" icon="mynaui:panel-left-solid" style="width: 33vw;">
       <bim-panel-section label="Panel Section" icon="solar:settings-bold">
         <bim-label>This is just a panel section... cool, right?</bim-label>
         <bim-button @click=${()=>{alert("You clicked me!")}} label="Click me!"></bim-button>
@@ -23,7 +23,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-C
       </bim-panel-section>
     </bim-panel>
   `),c=s.create(()=>b`
-    <bim-panel label="Table" icon="material-symbols:table" style="height: 25rem">
+    <bim-panel label="Table" id="table" icon="material-symbols:table" style="height: 30vh">
       <bim-panel-section label="Assignments" fixed>
         <bim-table ${y(n=>{if(!n)return;const i=n,o={padding:"0.25rem 0.375rem",borderRadius:"0.25rem"};i.dataTransform={Status:e=>{if(typeof e!="string")return e;if(e==="In Progress"){const a={...o,backgroundColor:"#3c59c3",color:"white"};return b`<bim-label style=${r(a)}>${e}</bim-label>`}if(e==="Pending"){const a={...o,backgroundColor:"#5c5c5c",color:"white"};return b`<bim-label style=${r(a)}>${e}</bim-label>`}if(e==="Completed"){const a={...o,backgroundColor:"#3a7829",color:"white"};return b`<bim-label style=${r(a)}>${e}</bim-label>`}if(e==="Scheduled"){const a={...o,backgroundColor:"#9e2980",color:"white"};return b`<bim-label style=${r(a)}>${e}</bim-label>`}return e},AssignedTo:(e,a)=>b`
           <div style="display: flex; gap: 0.5rem">
@@ -34,7 +34,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-C
       </bim-panel-section>
     </bim-panel> 
   `),u=s.create(()=>b`
-    <bim-panel label="Right Panel" icon="mynaui:panel-right-solid" style="width: 20rem">
+    <bim-panel label="Right Panel" id="right-panel" icon="mynaui:panel-right-solid" style="width: 33vw;">
       <bim-panel-section label="Panel Section" icon="solar:settings-bold">
         <bim-button label="Button With Nestings">
           <bim-context-menu>
@@ -56,7 +56,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-C
       </bim-panel-section>
     </bim-panel>
   `),C=s.create(()=>{const t=()=>window.open("https://people.thatopen.com/home"),n=()=>{d.toggleTheme()},{activationButton:i}=u,{activationButton:o}=m,{activationButton:e}=c;return i.vertical=!0,o.vertical=!0,e.vertical=!0,b`
-   <bim-tabs>
+   <bim-tabs id="ribbon">
     <bim-tab label="Toolbar A">
       <bim-toolbar>
         <bim-toolbar-section label="Some section">
@@ -154,4 +154,13 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-C
       "leftPanel viewport rightPanel" 1fr
       "leftPanel bottomPanel bottomPanel" auto
       / auto 1fr auto
-    `,elements:{ribbon:C,leftPanel:m,viewport:v,bottomPanel:c,rightPanel:u}}};l.addEventListener("layoutchange",()=>{l.layout?alert(`Your have changed to "${l.layout}" layout!`):alert("Your have cleaned up your layout!")});const A=document.body.querySelector("bim-button");A.addEventListener("click",()=>{const{layout:t}=l;switch(t){case void 0:l.layout="main";break;case"main":l.layout="app";break;case"app":l.layout=void 0;break;default:console.log("No follow up action")}});
+    `,tabletTemplate:`
+      "ribbon ribbon ribbon" auto
+      "leftPanel viewport ." 1fr
+      "leftPanel bottomPanel bottomPanel" auto
+      / auto 1fr auto`,mobileTempalte:`
+      "ribbon ribbon ribbon" auto
+      ". viewport ." 1fr
+      "leftPanel leftPanel leftPanel" auto
+      / auto 1fr auto
+    `,elements:{ribbon:C,leftPanel:m,viewport:v,bottomPanel:c,rightPanel:u},screenRules:{rightPanel:"desktop",bottomPanel:["desktop","tablet"]}}};l.addEventListener("layoutchange",()=>{l.layout?alert(`Your have changed to "${l.layout}" layout!`):alert("Your have cleaned up your layout!")});const A=document.body.querySelector("bim-button");A.addEventListener("click",()=>{const{layout:t}=l;switch(t){case void 0:l.layout="main";break;case"main":l.layout="app";break;case"app":l.layout=void 0;break;default:console.log("No follow up action")}});

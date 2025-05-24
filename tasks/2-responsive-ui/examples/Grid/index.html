@@ -34,18 +34,33 @@
     bim-panel {
       border-radius: 0;
     }
+
+    /* Mobile */
+    @media screen and (max-width: 480px) {
+      #my-panel {
+        width: 100vw !important;
+        height: 35vh;
+      }
+    }
+
+    /* Tablet */
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      #my-panel {
+        width: 40vw !important;
+      }
+    }
   </style>
   <script type="module" crossorigin src="../assets/grid.js"></script>
   <link rel="modulepreload" crossorigin href="../assets/modulepreload-polyfill-B5Qt9EMX.js">
   <link rel="modulepreload" crossorigin href="../assets/lit-html-CuBe1DX_.js">
   <link rel="modulepreload" crossorigin href="../assets/state-VyZkHw6A.js">
   <link rel="modulepreload" crossorigin href="../assets/ref-DfidMTJ6.js">
-  <link rel="modulepreload" crossorigin href="../assets/index-CEtFlQYm.js">
+  <link rel="modulepreload" crossorigin href="../assets/index-CUbqffeq.js">
 </head>
 
 <body>
   <bim-button label="Change Layout" icon="mingcute:layout-fill"></bim-button>
-  <bim-grid layout="app"></bim-grid>
+  <bim-grid layout="app"></bim-grid>
 </body>
 
 </html>

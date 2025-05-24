@@ -30,13 +30,27 @@
       grid-template: "toolbar toolbar" auto "panel-a content" 1fr "panel-b panel-b" auto / 20rem 1fr;
       gap: 1px;
     }
+
+    /* Tablet View */
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      #app {
+        grid-template: "toolbar toolbar" auto "panel-a content" 1fr "panel-b panel-b" auto / 1fr 1fr;
+      }
+    }
+
+    /* Mobile View */
+    @media screen and (max-width: 480px) {
+      #app {
+        grid-template: "toolbar" auto "panel-a" 1fr "content" 1fr "panel-b" auto / auto;
+      }
+    }
   </style>
   <script type="module" crossorigin src="../assets/tabs.js"></script>
   <link rel="modulepreload" crossorigin href="../assets/modulepreload-polyfill-B5Qt9EMX.js">
   <link rel="modulepreload" crossorigin href="../assets/lit-html-CuBe1DX_.js">
   <link rel="modulepreload" crossorigin href="../assets/state-VyZkHw6A.js">
   <link rel="modulepreload" crossorigin href="../assets/ref-DfidMTJ6.js">
-  <link rel="modulepreload" crossorigin href="../assets/index-CEtFlQYm.js">
+  <link rel="modulepreload" crossorigin href="../assets/index-CUbqffeq.js">
 </head>
 
 <body>
@@ -96,7 +110,7 @@
       </bim-tab>
       <bim-tab name="costEstimate" label="Cost Estimate"></bim-tab>
     </bim-tabs>
-  </div>
+  </div>
 </body>
 
 </html>
