@@ -1,13 +1,17 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";import{z as l,C as p,W as d,S as f,a as b,b as g,G as w,I as y,F as u,s as C,R as T,m as v}from"./index-DAsnr_BD.js";import{b as E}from"./index-cRq2rJUc.js";import{t as I}from"./index-CQk3iCSE.js";import"./lit-html-CuBe1DX_.js";l.init();const e=new p,n=document.createElement("bim-viewport");n.name="viewer";const L=e.get(d),t=L.create(),o=new f(e);o.setup();t.scene=o;const r=new b(e,n);t.renderer=r;const c=new g(e);t.camera=c;n.addEventListener("resize",()=>{r.resize(),c.updateAspect()});const S=e.get(w);S.create(t);e.init();const z=e.get(y);await z.setup();const m=e.get(u);m.onFragmentsLoaded.add(s=>{t.scene&&t.scene.three.add(s)});const[F,G]=I.classificationTree({components:e,classifications:[]}),i=e.get(C);m.onFragmentsLoaded.add(async s=>{i.byEntity(s),await i.byPredefinedType(s),G({classifications:[{system:"entities",label:"Entities"},{system:"predefinedTypes",label:"Predefined Types"}]})});const R=T.create(()=>{const[s]=E.loadIfc({components:e});return v`
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{z as l,C as p,W as d,S as f,a as b,b as w,G as g,I as y,F as u,s as C,R as T,m as v}from"./index-CvwIbfmY.js";import{b as E}from"./index-DEg893xI.js";import{t as I}from"./index-TYO8TGTx.js";import"./lit-html-CuBe1DX_.js";l.init();const e=new p,a=document.createElement("bim-viewport");a.name="viewer";const L=e.get(d),s=L.create(),o=new f(e);o.setup();s.scene=o;const r=new b(e,a);s.renderer=r;const c=new w(e);s.camera=c;a.addEventListener("resize",()=>{r.resize(),c.updateAspect()});const S=e.get(g);S.create(s);e.init();const z=e.get(y);await z.setup();const m=e.get(u);m.onFragmentsLoaded.add(t=>{s.scene&&s.scene.three.add(t)});const[F,G]=I.classificationTree({components:e,classifications:[]}),i=e.get(C);m.onFragmentsLoaded.add(async t=>{i.byEntity(t),await i.byPredefinedType(t),G({classifications:[{system:"entities",label:"Entities"},{system:"predefinedTypes",label:"Predefined Types"}]})});const R=T.create(()=>{const[t]=E.loadIfc({components:e});return v`
    <bim-panel label="Classifications Tree">
     <bim-panel-section label="Importing">
-      ${s}
+      ${t}
     </bim-panel-section>
     <bim-panel-section label="Classifications">
       ${F}
     </bim-panel-section>
    </bim-panel> 
-  `}),a=document.createElement("bim-grid");a.layouts={main:{template:`
+  `}),n=document.createElement("bim-grid");n.layouts={main:{template:`
       "panel viewport"
       / 23rem 1fr
-    `,elements:{panel:R,viewport:n}}};a.layout="main";document.body.append(a);
+    `,tabletTemplate:`
+      "viewport" 1fr
+      "panel" 1fr
+      / 1fr
+    `,elements:{panel:R,viewport:a}}};n.layout="main";document.body.append(n);

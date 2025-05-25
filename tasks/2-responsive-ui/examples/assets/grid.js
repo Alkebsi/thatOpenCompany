@@ -1,9 +1,9 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-CUbqffeq.js";import"./state-VyZkHw6A.js";import{T as h,x as b}from"./lit-html-CuBe1DX_.js";import{a as D,i as f,t as T,n as y}from"./ref-DfidMTJ6.js";/**
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-BOcTN4PL.js";import"./state-VyZkHw6A.js";import{T as h,x as b}from"./lit-html-CuBe1DX_.js";import{a as D,i as f,t as T,n as y}from"./ref-DfidMTJ6.js";/**
  * @license
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */const p="important",k=" !"+p,r=D(class extends f{constructor(t){var n;if(super(t),t.type!==T.ATTRIBUTE||t.name!=="style"||((n=t.strings)==null?void 0:n.length)>2)throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.")}render(t){return Object.keys(t).reduce((n,i)=>{const o=t[i];return o==null?n:n+`${i=i.includes("-")?i:i.replace(/(?:^(webkit|moz|ms|o)|)(?=[A-Z])/g,"-$&").toLowerCase()}:${o};`},"")}update(t,[n]){const{style:i}=t.element;if(this.ft===void 0)return this.ft=new Set(Object.keys(n)),this.render(n);for(const o of this.ft)n[o]==null&&(this.ft.delete(o),o.includes("-")?i.removeProperty(o):i[o]=null);for(const o in n){const e=n[o];if(e!=null){this.ft.add(o);const a=typeof e=="string"&&e.endsWith(k);o.includes("-")||a?i.setProperty(o,a?e.slice(0,-11):e,a?p:""):i[o]=e}}return h}});d.init();const m=s.create(()=>b`
-    <bim-panel label="My Panel" id="my-panel" icon="mynaui:panel-left-solid" style="width: 33vw;">
+    <bim-panel label="My Panel" id="my-panel" icon="mynaui:panel-left-solid" style="width: 24rem;">
       <bim-panel-section label="Panel Section" icon="solar:settings-bold">
         <bim-label>This is just a panel section... cool, right?</bim-label>
         <bim-button @click=${()=>{alert("You clicked me!")}} label="Click me!"></bim-button>
@@ -34,7 +34,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-C
       </bim-panel-section>
     </bim-panel> 
   `),u=s.create(()=>b`
-    <bim-panel label="Right Panel" id="right-panel" icon="mynaui:panel-right-solid" style="width: 33vw;">
+    <bim-panel label="Right Panel" id="right-panel" icon="mynaui:panel-right-solid">
       <bim-panel-section label="Panel Section" icon="solar:settings-bold">
         <bim-button label="Button With Nestings">
           <bim-context-menu>
@@ -153,12 +153,13 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-C
       "ribbon ribbon ribbon" auto
       "leftPanel viewport rightPanel" 1fr
       "leftPanel bottomPanel bottomPanel" auto
-      / auto 1fr auto
+      / auto 1fr 20rem
     `,tabletTemplate:`
       "ribbon ribbon ribbon" auto
       "leftPanel viewport ." 1fr
       "leftPanel bottomPanel bottomPanel" auto
-      / auto 1fr auto`,mobileTempalte:`
+      / auto 1fr auto
+    `,mobileTempalte:`
       "ribbon ribbon ribbon" auto
       ". viewport ." 1fr
       "leftPanel leftPanel leftPanel" auto

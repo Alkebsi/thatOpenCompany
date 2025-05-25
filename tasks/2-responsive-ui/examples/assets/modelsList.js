@@ -1,7 +1,7 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";import{z as m,C as c,W as l,S as d,a as p,b,G as f,I as g,F as w,R as u,m as C}from"./index-DAsnr_BD.js";import{b as L}from"./index-cRq2rJUc.js";import{t as v}from"./index-CQk3iCSE.js";import"./lit-html-CuBe1DX_.js";m.init();const e=new c,I=e.get(l),n=I.create(),s=new d(e);s.setup();n.scene=s;const a=document.createElement("bim-viewport"),r=new p(e,a);n.renderer=r;const i=new b(e);n.camera=i;a.addEventListener("resize",()=>{r.resize(),i.updateAspect()});const S=e.get(f);S.create(n);e.init();const z=e.get(g);await z.setup();const F=e.get(w);F.onFragmentsLoaded.add(t=>{n.scene&&n.scene.three.add(t)});const[M]=v.modelsList({components:e,tags:{schema:!0,viewDefinition:!1},actions:{download:!1}}),y=u.create(()=>{const[t]=L.loadIfc({components:e});return C`
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{z as m,C as c,W as l,S as p,a as d,b,G as f,I as w,F as g,R as u,m as v}from"./index-CvwIbfmY.js";import{b as C}from"./index-DEg893xI.js";import{t as L}from"./index-TYO8TGTx.js";import"./lit-html-CuBe1DX_.js";m.init();const e=new c,I=e.get(l),t=I.create(),s=new p(e);s.setup();t.scene=s;const a=document.createElement("bim-viewport"),r=new d(e,a);t.renderer=r;const i=new b(e);t.camera=i;a.addEventListener("resize",()=>{r.resize(),i.updateAspect()});const S=e.get(f);S.create(t);e.init();const z=e.get(w);await z.setup();const F=e.get(g);F.onFragmentsLoaded.add(n=>{t.scene&&t.scene.three.add(n)});const[M]=L.modelsList({components:e,tags:{schema:!0,viewDefinition:!1},actions:{download:!1}}),y=u.create(()=>{const[n]=C.loadIfc({components:e});return v`
    <bim-panel label="IFC Models">
     <bim-panel-section label="Importing">
-      ${t}
+      ${n}
     </bim-panel-section>
     <bim-panel-section icon="mage:box-3d-fill" label="Loaded Models">
       ${M}
@@ -10,4 +10,8 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{z as m,C as c,W as l,S as d,
   `}),o=document.createElement("bim-grid");o.layouts={main:{template:`
       "panel viewport"
       / 23rem 1fr
+    `,tabletTemplate:`
+      "viewport" 1fr
+      "panel" 1fr
+      / 1fr
     `,elements:{panel:y,viewport:a}}};o.layout="main";document.body.append(o);
