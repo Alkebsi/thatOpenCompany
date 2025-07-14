@@ -1,4 +1,4 @@
-import{I as r,m as f,R as s}from"./index-CvwIbfmY.js";const m=t=>{const{components:n}=t,c=n.get(r);return f`
+import{I as r,m as f,R as s}from"./index-DOPpyOxs.js";const m=t=>{const{components:n}=t,c=n.get(r);return f`
     <bim-button
       data-ui-id="import-ifc"
       label="Load IFC"

@@ -1,4 +1,4 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-BOcTN4PL.js";import"./state-VyZkHw6A.js";import{T as h,x as b}from"./lit-html-CuBe1DX_.js";import{a as D,i as f,t as T,n as y}from"./ref-DfidMTJ6.js";/**
+import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-DjFR2pz7.js";import"./state-VyZkHw6A.js";import{T as h,x as b}from"./lit-html-CuBe1DX_.js";import{a as D,i as f,t as T,n as y}from"./ref-DfidMTJ6.js";/**
  * @license
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
@@ -34,7 +34,7 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-B
       </bim-panel-section>
     </bim-panel> 
   `),u=s.create(()=>b`
-    <bim-panel label="Right Panel" id="right-panel" icon="mynaui:panel-right-solid">
+    <bim-panel label="Right Panel" id="right-panel" icon="mynaui:panel-right-solid" style="width: 20rem">
       <bim-panel-section label="Panel Section" icon="solar:settings-bold">
         <bim-button label="Button With Nestings">
           <bim-context-menu>
@@ -153,15 +153,15 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";import{M as d,C as s}from"./index-B
       "ribbon ribbon ribbon" auto
       "leftPanel viewport rightPanel" 1fr
       "leftPanel bottomPanel bottomPanel" auto
-      / auto 1fr 20rem
+      / auto 1fr auto
     `,tabletTemplate:`
       "ribbon ribbon ribbon" auto
       "leftPanel viewport ." 1fr
       "leftPanel bottomPanel bottomPanel" auto
       / auto 1fr auto
-    `,mobileTempalte:`
+    `,mobileTemplate:`
       "ribbon ribbon ribbon" auto
       ". viewport ." 1fr
       "leftPanel leftPanel leftPanel" auto
       / auto 1fr auto
-    `,elements:{ribbon:C,leftPanel:m,viewport:v,bottomPanel:c,rightPanel:u},screenRules:{rightPanel:"desktop",bottomPanel:["desktop","tablet"]}}};l.addEventListener("layoutchange",()=>{l.layout?alert(`Your have changed to "${l.layout}" layout!`):alert("Your have cleaned up your layout!")});const A=document.body.querySelector("bim-button");A.addEventListener("click",()=>{const{layout:t}=l;switch(t){case void 0:l.layout="main";break;case"main":l.layout="app";break;case"app":l.layout=void 0;break;default:console.log("No follow up action")}});
+    `,elements:{ribbon:C,leftPanel:m,viewport:v,bottomPanel:c,rightPanel:u},sizes:{mobile:480,tablet:768}}};l.addEventListener("layoutchange",()=>{l.layout?alert(`Your have changed to "${l.layout}" layout!`):alert("Your have cleaned up your layout!")});const A=document.body.querySelector("bim-button");A.addEventListener("click",()=>{const{layout:t}=l;switch(t){case void 0:l.layout="main";break;case"main":l.layout="app";break;case"app":l.layout=void 0;break;default:console.log("No follow up action")}});
